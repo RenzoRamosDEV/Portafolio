@@ -9,6 +9,10 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|svg|gif\\)$\")"
+    ],
+    "additionalDirectories": [
+      "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/.claude",
+      "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo"
     ]
   }
 }

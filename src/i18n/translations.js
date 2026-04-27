@@ -1,6 +1,6 @@
 export const translations = {
   es: {
-    heroLabel: "// Desarrollador Full Stack",
+    heroLabel: "// Desarrollador de Aplicaciones Multiplataforma",
     heroName: "Hola, soy<br/>Renzo Ramos",
     heroRole: "// Construyo ideas en código",
     heroBio: "Desarrollador apasionado por crear experiencias web que combinan diseño cuidado con ingeniería sólida. Me especializo en transformar problemas complejos en soluciones elegantes y escalables.",
@@ -10,6 +10,11 @@ export const translations = {
     stackTitle: "Mi Stack Técnico",
     projLabel: "// Proyectos",
     projTitle: "Lo que he construido",
+    trayectoriaLabel: "// Mi carrera",
+    trayectoriaTitle: "Mi Trayectoria",
+    experienceTitle: "Experiencia",
+    educationTitle: "Educación",
+    certificatesTitle: "Licencias y certificaciones",
     navAbout: "Sobre mí",
     navStack: "Stack",
     navProjects: "Proyectos",
@@ -18,7 +23,7 @@ export const translations = {
     footerCopy: "© 2026 · Hecho con café y algunos git commits :)"
   },
   en: {
-    heroLabel: "// Full Stack Developer",
+    heroLabel: "// Cross-Platform Application Developer",
     heroName: "Hi, I'm<br/>Renzo Ramos",
     heroRole: "// Building ideas into code",
     heroBio: "Developer passionate about crafting web experiences that blend thoughtful design with solid engineering. I specialize in turning complex problems into elegant, scalable solutions.",
@@ -28,6 +33,11 @@ export const translations = {
     stackTitle: "My Tech Stack",
     projLabel: "// Projects",
     projTitle: "What I've built",
+    trayectoriaLabel: "// My career",
+    trayectoriaTitle: "My Journey",
+    experienceTitle: "Experience",
+    educationTitle: "Education",
+    certificatesTitle: "Licenses and certifications",
     navAbout: "About me",
     navStack: "Stack",
     navProjects: "Projects",

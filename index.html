@@ -28,14 +28,15 @@
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="src/styles/variables.css">
-  <link rel="stylesheet" href="src/styles/base.css">
-  <link rel="stylesheet" href="src/styles/nav-footer.css">
-  <link rel="stylesheet" href="src/styles/hero.css">
-  <link rel="stylesheet" href="src/styles/sections.css">
-  <link rel="stylesheet" href="src/styles/projects.css">
-  <link rel="stylesheet" href="src/styles/animations.css">
-  <link rel="stylesheet" href="src/styles/tweaks-panel.css">
+  <link rel="stylesheet" href="src/styles/base/variables.css">
+  <link rel="stylesheet" href="src/styles/base/base.css">
+  <link rel="stylesheet" href="src/styles/base/animations.css">
+  <link rel="stylesheet" href="src/styles/components/nav-footer.css">
+  <link rel="stylesheet" href="src/styles/components/hero.css">
+  <link rel="stylesheet" href="src/styles/components/sections.css">
+  <link rel="stylesheet" href="src/styles/components/projects.css">
+  <link rel="stylesheet" href="src/styles/components/trayectoria.css">
+  <link rel="stylesheet" href="src/styles/components/tweaks-panel.css">
 
   <!-- Prefers Reduced Motion -->
   <style>
@@ -195,6 +196,34 @@
     </div>
     <div class="marquee-wrapper" role="region" aria-label="Stack técnico en carrusel">
       <div class="marquee-track" id="stack-grid" role="list"></div>
+    </div>
+  </section>
+
+  <!-- Sección Trayectoria -->
+  <section id="trayectoria" aria-labelledby="trayectoria-title">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="trayectoriaLabel"></p>
+      <h2 class="section-title reveal" id="trayectoria-title" data-i18n="trayectoriaTitle"></h2>
+
+      <div class="trayectoria-cards-grid">
+        <!-- Card Experiencia (Izquierda arriba) -->
+        <div class="trayectoria-card trayectoria-card-experience reveal">
+          <h3 class="trayectoria-card-title" data-i18n="experienceTitle"></h3>
+          <div class="trayectoria-card-scroll" id="experience-list" role="list"></div>
+        </div>
+
+        <!-- Card Educación (Izquierda abajo) -->
+        <div class="trayectoria-card trayectoria-card-education reveal">
+          <h3 class="trayectoria-card-title" data-i18n="educationTitle"></h3>
+          <div class="trayectoria-card-scroll" id="education-list" role="list"></div>
+        </div>
+
+        <!-- Card Certificados (Derecha) -->
+        <div class="trayectoria-card trayectoria-card-certificates reveal">
+          <h3 class="trayectoria-card-title" data-i18n="certificatesTitle"></h3>
+          <div class="trayectoria-card-scroll" id="certificates-list" role="list"></div>
+        </div>
+      </div>
     </div>
   </section>
 

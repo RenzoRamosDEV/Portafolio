@@ -1,7 +1,7 @@
 export const projects = [
   {
     num: "01",
-    title: "Nombre del Proyecto",
+    title: "Booqi",
     desc: "Una aplicación web completa que resuelve [problema concreto]. Incluye autenticación, dashboard en tiempo real y API REST bien documentada.",
     badges: ["React", "Node.js", "PostgreSQL", "Docker"],
     repo: "#",

@@ -33,14 +33,14 @@ index.html (punto de entrada)
 
 ## 📁 Archivos Críticos
 
-| Archivo | Responsabilidad | Nota |
-|---------|-----------------|------|
-| `index.html` | Estructura, meta tags | Cambiar nombre/email aquí |
-| `src/data/stack.js` | Tecnologías | Array de 8 items |
-| `src/data/projects.js` | Proyectos | Array de 3-N proyectos |
+| Archivo                    | Responsabilidad            | Nota                        |
+| -------------------------- | -------------------------- | --------------------------- |
+| `index.html`               | Estructura, meta tags      | Cambiar nombre/email aquí   |
+| `src/data/stack.js`        | Tecnologías                | Array de 8 items            |
+| `src/data/projects.js`     | Proyectos                  | Array de 3-N proyectos      |
 | `src/styles/variables.css` | Tema (colores, tipografía) | Editar para cambiar colores |
-| `src/js/main.js` | Renderizado y setup | Punto de entrada JS |
-| `src/i18n/translations.js` | Textos ES/EN | Objeto con 2 claves |
+| `src/js/main.js`           | Renderizado y setup        | Punto de entrada JS         |
+| `src/i18n/translations.js` | Textos ES/EN               | Objeto con 2 claves         |
 
 ## 🎯 Flujo Principal
 

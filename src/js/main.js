@@ -1,5 +1,8 @@
 import { stackItems } from '../data/stack.js';
 import { projects } from '../data/projects.js';
+import { experienceItems } from '../data/experience.js';
+import { educationItems } from '../data/education.js';
+import { certificateItems } from '../data/certificates.js';
 import { initI18nAndDarkMode } from '../utils/i18n-dark-mode.js';
 import { initScrollReveal } from '../utils/scroll-reveal.js';
 import { initDrawingTrail } from '../utils/drawing-trail.js';
@@ -100,6 +103,107 @@ function renderProjects(container) {
 }
 
 /**
+ * Renderiza la lista de experiencia
+ * @param {HTMLElement} container - Contenedor donde renderizar
+ */
+function renderExperience(container) {
+  if (!container) return;
+
+  const html = experienceItems
+    .map(
+      (item) => `
+    <div class="trayectoria-item reveal" role="listitem">
+      <div class="trayectoria-item-header">
+        <div class="trayectoria-item-logo">${item.company.slice(0, 2).toUpperCase()}</div>
+        <div>
+          <div class="trayectoria-item-title">${escapeHtml(item.title)}</div>
+          <div class="trayectoria-item-subtitle">${escapeHtml(item.company)} · ${escapeHtml(item.type)}</div>
+        </div>
+      </div>
+      <div class="trayectoria-item-date">${item.startDate} · ${item.status} · ${item.duration}</div>
+      <div class="trayectoria-item-location">${escapeHtml(item.location)} · ${escapeHtml(item.mode)}</div>
+      <div class="trayectoria-item-description">${escapeHtml(item.description)}</div>
+      ${
+        item.skills
+          ? `<div class="trayectoria-item-skills">${item.skills.map((s) => `<span class="trayectoria-skill-tag">${escapeHtml(s)}</span>`).join('')}</div>`
+          : ''
+      }
+    </div>
+  `
+    )
+    .join('');
+
+  container.innerHTML = html;
+}
+
+/**
+ * Renderiza la lista de educación
+ * @param {HTMLElement} container - Contenedor donde renderizar
+ */
+function renderEducation(container) {
+  if (!container) return;
+
+  const html = educationItems
+    .map(
+      (item) => `
+    <div class="trayectoria-item reveal" role="listitem">
+      <div class="trayectoria-item-header">
+        <div class="trayectoria-item-logo">${item.school.slice(0, 2).toUpperCase()}</div>
+        <div>
+          <div class="trayectoria-item-title">${escapeHtml(item.title)}</div>
+          <div class="trayectoria-item-subtitle">${escapeHtml(item.school)}</div>
+        </div>
+      </div>
+      <div class="trayectoria-item-date">${item.startDate} · ${item.endDate}</div>
+      <div class="trayectoria-item-description">${escapeHtml(item.description)}</div>
+      ${
+        item.skills
+          ? `<div class="trayectoria-item-skills">${item.skills.map((s) => `<span class="trayectoria-skill-tag">${escapeHtml(s)}</span>`).join('')}</div>`
+          : ''
+      }
+    </div>
+  `
+    )
+    .join('');
+
+  container.innerHTML = html;
+}
+
+/**
+ * Renderiza la lista de certificados
+ * @param {HTMLElement} container - Contenedor donde renderizar
+ */
+function renderCertificates(container) {
+  if (!container) return;
+
+  const html = certificateItems
+    .map(
+      (item) => `
+    <div class="trayectoria-item reveal" role="listitem">
+      <div class="trayectoria-item-header">
+        <div class="trayectoria-item-logo">${item.issuer.slice(0, 2).toUpperCase()}</div>
+        <div>
+          <div class="trayectoria-item-title">${escapeHtml(item.title)}</div>
+          <div class="trayectoria-item-subtitle">${escapeHtml(item.issuer)}</div>
+        </div>
+      </div>
+      ${item.issuedDate ? `<div class="trayectoria-item-date">Expedición: ${item.issuedDate}</div>` : ''}
+      ${item.credentialId ? `<div class="trayectoria-item-date">ID: ${item.credentialId}</div>` : ''}
+      <div class="trayectoria-item-description">${escapeHtml(item.description)}</div>
+      ${
+        item.skills
+          ? `<div class="trayectoria-item-skills">${item.skills.map((s) => `<span class="trayectoria-skill-tag">${escapeHtml(s)}</span>`).join('')}</div>`
+          : ''
+      }
+    </div>
+  `
+    )
+    .join('');
+
+  container.innerHTML = html;
+}
+
+/**
  * Escapa caracteres HTML para prevenir XSS
  * @param {string} text - Texto a escapar
  * @returns {string} Texto escapado
@@ -121,10 +225,16 @@ function escapeHtml(text) {
 function init() {
   const stackGrid = document.getElementById('stack-grid');
   const projectsList = document.getElementById('projects-list');
+  const experienceList = document.getElementById('experience-list');
+  const educationList = document.getElementById('education-list');
+  const certificatesList = document.getElementById('certificates-list');
 
   /* Renderizar contenido dinámico */
   renderStackGrid(stackGrid);
   renderProjects(projectsList);
+  renderExperience(experienceList);
+  renderEducation(educationList);
+  renderCertificates(certificatesList);
 
   /* Inicializar funcionalidades */
   initI18nAndDarkMode();
