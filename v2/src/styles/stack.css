@@ -5,9 +5,9 @@
 
 .section-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 16px;
   display: flex;
@@ -43,6 +43,320 @@
 .stack-section {
   padding: 100px 120px;
   overflow: hidden;
+}
+
+.stack-group {
+  margin-bottom: 52px;
+}
+
+.stack-group-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.75;
+}
+
+.stack-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.stack-grid .stack-card {
+  width: 190px;
+  flex-shrink: 0;
+}
+
+/* ── Compact row layout ───────────────────────────── */
+
+.stack-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.stack-layout--rev .stack-compact-list {
+  align-items: stretch;
+}
+
+.stack-layout--rev .stack-row {
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+/* Con card activa: extiende las líneas exactamente el ancho de la card+gap */
+.stack-layout--rev.has-card .stack-row {
+  border-bottom: none;
+  border-top: none;
+}
+
+.stack-layout--rev.has-card .stack-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -300px;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.stack-layout--rev.has-card .stack-row:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -300px;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* Chips pegados al label (derecha) — espacio libre queda a la izquierda */
+.stack-layout--rev .stack-row-chips {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.stack-compact-list {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.stack-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stack-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stack-row-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 150px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.stack-row-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stack-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px 9px 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  cursor: default;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.stack-chip:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.stack-chip img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+.stack-chip-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+.stack-chip--selected {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stack-chip--selected .stack-chip-name {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stack-chip-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.stack-detail-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ── Detail card ───────────────────────────────────── */
+
+.stack-detail {
+  width: 280px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%), #04000e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 28px 26px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: detailIn 0.18s ease;
+}
+
+.stack-layout--rev .stack-detail {
+  align-self: stretch;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 22px;
+}
+
+.stack-layout--rev .stack-detail-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
+.stack-layout--rev .stack-detail-icon img,
+.stack-layout--rev .stack-detail-badge {
+  width: 52px;
+  height: 52px;
+}
+
+.stack-layout--rev .stack-detail-name {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.stack-layout--rev .stack-detail-cat {
+  margin-bottom: 6px;
+}
+
+@keyframes detailIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.stack-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.15s;
+}
+
+.stack-detail-close:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stack-detail-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-detail-icon img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.stack-detail-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.stack-detail-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.stack-detail-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 300;
+  margin: 0;
 }
 
 .stack-carousel-wrap {
