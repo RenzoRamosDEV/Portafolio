@@ -141,14 +141,6 @@ export function StackSection({ scheme }) {
       </h2>
 
       <div className={`stack-layout stack-layout--rev${selectedM ? ' has-card' : ''}`}>
-        {selectedM && (
-          <DetailCard
-            item={selectedM}
-            accent={selectedM.color}
-            onClose={() => setSelectedM(null)}
-          />
-        )}
-
         <div className="stack-compact-list">
           {methodGroups.map(({ label, items, color }) => (
             <div className="stack-row" key={label}>
@@ -166,6 +158,14 @@ export function StackSection({ scheme }) {
             </div>
           ))}
         </div>
+
+        {selectedM && (
+          <DetailCard
+            item={selectedM}
+            accent={selectedM.color}
+            onClose={() => setSelectedM(null)}
+          />
+        )}
       </div>
     </section>
   );
