@@ -43,6 +43,15 @@ export function Hero({ scheme, onScrollTo }) {
 
       <div className="hero-actions fade-up fade-up-4">
         <a
+          href="https://github.com/RenzoRamosDEV"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary"
+          style={{ textDecoration: 'none' }}
+        >
+          GitHub
+        </a>
+        <a
           href="https://www.linkedin.com/in/renzoinv04/"
           target="_blank"
           rel="noopener noreferrer"
