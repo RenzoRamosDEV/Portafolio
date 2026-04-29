@@ -518,3 +518,66 @@
   letter-spacing: 0.05em;
   flex-shrink: 0;
 }
+
+@media (max-width: 720px) {
+  .stack-section {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: clamp(30px, 9vw, 48px);
+  }
+
+  /* Row: label arriba, chips abajo */
+  .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .stack-row-label {
+    width: auto;
+    font-size: 11px;
+  }
+
+  .stack-row-chips {
+    width: 100%;
+  }
+
+  /* Layout: columna en mobile, detail card encima/debajo */
+  .stack-layout {
+    flex-direction: column;
+  }
+
+  .stack-layout--rev {
+    flex-direction: column;
+  }
+
+  .stack-layout--rev .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stack-layout--rev .stack-row-label {
+    text-align: left;
+  }
+
+  .stack-layout--rev .stack-row-chips {
+    justify-content: flex-start;
+  }
+
+  /* Ocultar detail card en mobile */
+  .stack-detail {
+    display: none;
+  }
+
+  /* Titulo right: centrado en mobile */
+  .section-title--right {
+    text-align: left;
+  }
+
+  .section-tag--right {
+    justify-content: flex-start;
+  }
+}
