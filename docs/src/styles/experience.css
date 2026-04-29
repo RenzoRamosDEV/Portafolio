@@ -409,13 +409,29 @@
     gap: 10px;
     overflow: hidden;
     height: auto;
+    width: 100%;
   }
 
+  /* Cards se adaptan: 1 card = 100%, 2 cards = 50% cada una */
   .exp-layout--mobile .exp-card-small {
     flex: 1;
     min-width: 0;
     min-height: auto;
     padding: 14px;
+  }
+
+  /* Cuando hay solo 1 card en mobile: ocupa todo el ancho */
+  .exp-layout--mobile.exp-cards--1 .exp-card-small {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Cuando hay 2 cards en mobile: cada una ocupa 50% */
+  .exp-layout--mobile.exp-cards--2 .exp-card-small {
+    flex: 1;
+    width: calc(50% - 5px);
+    max-width: calc(50% - 5px);
   }
 
   /* Flechas ◀▶: fila centrada debajo de las cards */

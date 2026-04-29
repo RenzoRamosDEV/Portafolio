@@ -44,6 +44,8 @@ export function ExperienceSection({ scheme }) {
     : screenSize === 'tablet' ? VISIBLE_TABLET 
     : VISIBLE_DESKTOP;
   const currentItems  = TABS.find(t => t.id === activeTab)?.items ?? [];
+  const currentVisibleItems = currentItems.slice(scrollIndex, scrollIndex + visibleCount);
+  const actualVisibleCount = Math.min(currentItems.length - scrollIndex, visibleCount);
   const canScrollUp   = scrollIndex > 0;
   const canScrollDown = scrollIndex < currentItems.length - visibleCount;
 
@@ -73,11 +75,11 @@ export function ExperienceSection({ scheme }) {
         ))}
       </div>
 
-      <div className={`exp-layout exp-layout--${screenSize}`}>
+      <div className={`exp-layout exp-layout--${screenSize} exp-cards--${actualVisibleCount}`}>
 
         <div className="exp-list-container">
           <div className="exp-list">
-            {currentItems.slice(scrollIndex, scrollIndex + visibleCount).map((item, idx) => (
+            {currentVisibleItems.map((item, idx) => (
               <ExpCardSmall
                 key={scrollIndex + idx}
                 data={item}
