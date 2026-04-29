@@ -13,8 +13,6 @@ const METHOD_DEV     = METHODOLOGIES.filter(i => i.cat === 'dev');
 const METHOD_TESTING = METHODOLOGIES.filter(i => i.cat === 'testing');
 const METHOD_PROCESS = METHODOLOGIES.filter(i => i.cat === 'process');
 
-const CAT_LABEL = { back: 'Backend', front: 'Frontend', ia: 'IA', tools: 'IDEs & SO' };
-
 function Chip({ item, selected, accent, onClick }) {
   return (
     <div
@@ -65,9 +63,6 @@ function DetailCard({ item, accent, onClose }) {
           <img src={item.icon} alt={item.name} />
         )}
       </div>
-      <div className="stack-detail-cat" style={{ color: accent }}>
-        {isMethod ? item.cat.toUpperCase() : CAT_LABEL[item.cat]}
-      </div>
       <div className="stack-detail-name">{item.name}</div>
       <p className="stack-detail-desc">{item.desc}</p>
     </div>
@@ -76,14 +71,14 @@ function DetailCard({ item, accent, onClose }) {
 
 export function StackSection({ scheme }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
-  const [selected, setSelected]     = useState(null);
-  const [selectedM, setSelectedM]   = useState(null);
+  const [selected, setSelected]   = useState(null);
+  const [selectedM, setSelectedM] = useState(null);
 
   const stackGroups = [
-    { label: 'Backend',  items: BACK,  color: s.a },
-    { label: 'Frontend', items: FRONT, color: `${s.b}99` },
-    { label: 'IA',       items: IA,    color: s.b },
-    { label: 'IDEs & SO',items: TOOLS, color: `${s.a}99` },
+    { label: 'Backend',   items: BACK,  color: s.a },
+    { label: 'Frontend',  items: FRONT, color: `${s.b}99` },
+    { label: 'IA',        items: IA,    color: s.b },
+    { label: 'IDEs & SO', items: TOOLS, color: `${s.a}99` },
   ];
 
   const methodGroups = [
@@ -93,12 +88,11 @@ export function StackSection({ scheme }) {
     { label: 'Proceso & UI', items: METHOD_PROCESS, color: s.a },
   ];
 
-  const handleChip    = (item) => setSelected(prev  => prev?.name  === item.name ? null : item);
-  const handleMethod  = (item) => setSelectedM(prev => prev?.name  === item.name ? null : item);
+  const handleChip   = (item) => setSelected(prev  => prev?.name === item.name ? null : item);
+  const handleMethod = (item) => setSelectedM(prev => prev?.name === item.name ? null : item);
 
   return (
     <section className="stack-section" id="stack">
-      {/* ── Stack ── */}
       <div className="section-tag" style={{ color: s.a }}>
         Stack Tecnológico
       </div>
@@ -137,7 +131,6 @@ export function StackSection({ scheme }) {
         )}
       </div>
 
-      {/* ── Metodologías ── */}
       <div className="section-tag section-tag--right" style={{ color: s.b, marginTop: 72 }}>
         Forma de trabajar
       </div>

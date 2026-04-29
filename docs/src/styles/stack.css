@@ -256,20 +256,9 @@
   margin-bottom: 10px;
 }
 
-.stack-layout--rev .stack-detail-cat {
-  margin-bottom: 6px;
-}
-
 @keyframes detailIn {
-  from {
-    opacity: 0;
-    transform: translateX(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 .stack-detail-close {
@@ -304,16 +293,6 @@
   height: 68px;
   object-fit: contain;
   mix-blend-mode: screen;
-}
-
-.stack-detail-cat {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  opacity: 0.8;
 }
 
 .stack-detail-name {
@@ -417,6 +396,90 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.28);
   font-weight: 300;
+}
+
+@media (min-width: 721px) and (max-width: 1100px) {
+  .section {
+    padding: 80px 40px;
+  }
+
+  .stack-section {
+    padding: 80px 40px;
+  }
+
+  /* Layout: columna — la detail card va debajo de la lista */
+  .stack-layout,
+  .stack-layout--rev {
+    flex-direction: column;
+  }
+
+  /* Revertir row-reverse del layout invertido */
+  .stack-layout--rev .stack-row {
+    flex-direction: row;
+  }
+
+  .stack-layout--rev .stack-row-label {
+    text-align: left;
+  }
+
+  .stack-layout--rev .stack-row-chips {
+    justify-content: flex-start;
+  }
+
+  /* Detail card: grid icono | nombre+desc bien centrados */
+  .stack-detail,
+  .stack-layout--rev .stack-detail {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 18px;
+    align-items: center;
+    padding: 20px 24px;
+    align-self: stretch;
+  }
+
+  .stack-detail-icon,
+  .stack-layout--rev .stack-detail-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .stack-detail-icon img,
+  .stack-layout--rev .stack-detail-icon img,
+  .stack-layout--rev .stack-detail-badge {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stack-detail-name,
+  .stack-layout--rev .stack-detail-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 22px;
+    margin-bottom: 4px;
+    align-self: end;
+  }
+
+  .stack-detail-desc {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  /* Títulos derechos: alineados a la derecha en tablet */
+  .section-title--right {
+    text-align: right;
+  }
+
+  .section-tag--right {
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 720px) {

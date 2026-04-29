@@ -61,6 +61,12 @@
 }
 
 
+@media (min-width: 721px) and (max-width: 1100px) {
+  .nav {
+    padding: 0 40px;
+  }
+}
+
 @media (max-width: 720px) {
   .nav {
     padding: 0 20px;
