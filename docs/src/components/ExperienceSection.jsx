@@ -21,10 +21,10 @@ export function ExperienceSection({ scheme }) {
   const [activeTab, setActiveTab]       = useState('experiencia');
   const [selectedCard, setSelectedCard] = useState(0);
   const [scrollIndex, setScrollIndex]   = useState(0);
-  const [isMobile, setIsMobile]         = useState(() => window.innerWidth <= 720);
+  const [isMobile, setIsMobile]         = useState(() => window.innerWidth <= 1024);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 720);
+    const check = () => setIsMobile(window.innerWidth <= 1024);
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);

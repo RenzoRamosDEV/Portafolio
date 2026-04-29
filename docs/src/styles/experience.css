@@ -307,49 +307,6 @@
 }
 
 @media (max-width: 1024px) {
-  .exp-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    min-height: auto;
-  }
-
-  .exp-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    overflow: visible;
-    height: auto;
-  }
-
-  .exp-list-container {
-    gap: 16px;
-  }
-
-  .exp-scroll-controls {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    justify-content: flex-start;
-    order: -1;
-  }
-
-  .exp-detail {
-    padding: 0;
-    height: auto;
-  }
-
-  .exp-detail .exp-card-detail {
-    height: auto;
-    overflow-y: visible;
-  }
-
-  .exp-detail-title {
-    font-size: 20px;
-  }
-
-}
-
-@media (max-width: 720px) {
   /* Tabs: cada botón ocupa el mismo ancho */
   .exp-tabs-container {
     gap: 8px;
