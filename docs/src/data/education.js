@@ -8,7 +8,7 @@ export const educationItems = [
   },
   {
     title: "Bootcamp 42 Madrid Fundacion Telefonica",
-    company: "42 MADRID FUNDACION TELEFONICA",
+    company: "42 MADRID",
     period: "jul. 2025 - ago. 2025",
     location: "Madrid, España",
     desc: "Formación intensiva basada en aprendizaje autónomo y colaborativo, centrada en C, Linux y scripting en Shell.\n\n- Desarrollo de programas en C, enfocados en eficiencia y control de memoria\n- Trabajo en entorno Linux, uso de terminal y automatización con Shell scripting\n- Resolución de problemas algorítmicos y optimización de soluciones\n- Metodología de aprendizaje peer-to-peer, con revisión y validación entre estudiantes\n- Fortalecimiento de habilidades de lógica, debugging y trabajo colaborativo"
