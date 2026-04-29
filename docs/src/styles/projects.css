@@ -81,19 +81,6 @@
   overflow: hidden;
 }
 
-.project-img-placeholder-num {
-  font-family: 'Outfit', sans-serif;
-  font-size: 110px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  color: rgba(255, 255, 255, 0.05);
-  position: absolute;
-  bottom: -16px;
-  right: 20px;
-  user-select: none;
-}
-
 .project-img-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -109,15 +96,6 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-}
-
-.project-num-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.2);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
 }
 
 .project-title {

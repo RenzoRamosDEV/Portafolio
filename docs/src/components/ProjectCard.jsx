@@ -95,13 +95,11 @@ export function ProjectCard({ proj, scheme }) {
             style={{ background: `linear-gradient(135deg, rgba(${s.aRgb},0.08) 0%, rgba(${s.bRgb},0.05) 100%)` }}
           >
             <span className="project-img-label">Vista previa próximamente</span>
-            <div className="project-img-placeholder-num">{proj.num}</div>
           </div>
         )}
       </div>
 
       <div className="project-body">
-        <div className="project-num-tag">{proj.num}</div>
         <div className="project-title">{proj.title}</div>
         <p className="project-desc">{proj.desc}</p>
 
