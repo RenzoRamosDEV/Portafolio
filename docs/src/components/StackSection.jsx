@@ -6,12 +6,14 @@ import { METHODOLOGIES } from '../data/methodologies';
 const BACK  = STACK.filter(i => i.cat === 'back');
 const FRONT = STACK.filter(i => i.cat === 'front');
 const IA    = STACK.filter(i => i.cat === 'ia');
-const TOOLS = STACK.filter(i => i.cat === 'tools');
+const TOOLS = STACK.filter(i => i.cat === 'stack-tools');
+const IDES_SO = STACK.filter(i => i.cat === 'ides-so');
 
 const METHOD_ARCH    = METHODOLOGIES.filter(i => i.cat === 'arch');
-const METHOD_DEV     = METHODOLOGIES.filter(i => i.cat === 'dev');
+const METHOD_AI      = METHODOLOGIES.filter(i => i.cat === 'ai');
 const METHOD_TESTING = METHODOLOGIES.filter(i => i.cat === 'testing');
 const METHOD_PROCESS = METHODOLOGIES.filter(i => i.cat === 'process');
+const METHOD_UI      = METHODOLOGIES.filter(i => i.cat === 'ui');
 
 function Chip({ item, selected, accent, onClick }) {
   return (
@@ -76,16 +78,18 @@ export function StackSection({ scheme }) {
 
   const stackGroups = [
     { label: 'Backend',   items: BACK,  color: s.a },
+    { label: 'Tools',     items: TOOLS, color: `${s.a}99` },
     { label: 'Frontend',  items: FRONT, color: `${s.b}99` },
     { label: 'IA',        items: IA,    color: s.b },
-    { label: 'IDEs & SO', items: TOOLS, color: `${s.a}99` },
+    { label: 'IDEs & SO', items: IDES_SO, color: s.a },
   ];
 
   const methodGroups = [
     { label: 'Arquitectura', items: METHOD_ARCH,    color: `${s.a}99` },
-    { label: 'Desarrollo',   items: METHOD_DEV,     color: s.b },
+    { label: 'Desarrollo',   items: METHOD_AI,      color: s.b },
     { label: 'Testing',      items: METHOD_TESTING, color: `${s.b}99` },
-    { label: 'Proceso & UI', items: METHOD_PROCESS, color: s.a },
+    { label: 'Proceso',      items: METHOD_PROCESS, color: s.a },
+    { label: 'UI',           items: METHOD_UI,      color: `${s.a}99` },
   ];
 
   const handleChip   = (item) => setSelected(prev  => prev?.name === item.name ? null : item);
