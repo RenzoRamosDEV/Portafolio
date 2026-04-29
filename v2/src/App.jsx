@@ -17,6 +17,7 @@ import './styles/hero.css';
 import './styles/stack.css';
 import './styles/experience.css';
 import './styles/projects.css';
+import './styles/modal.css';
 import './styles/footer.css';
 import './styles/animations.css';
 
