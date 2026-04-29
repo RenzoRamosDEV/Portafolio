@@ -19,24 +19,6 @@
   }
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes marqueeRev {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -72,7 +54,3 @@
   opacity: 0;
 }
 
-.fade-up-5 {
-  animation-delay: 0.65s;
-  opacity: 0;
-}

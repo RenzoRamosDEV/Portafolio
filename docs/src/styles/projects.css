@@ -160,10 +160,6 @@
     padding: 7px 13px;
   }
 
-  .project-links {
-    justify-content: flex-start;
-  }
-
   .project-link {
     font-size: 13px;
     padding: 10px 20px;
@@ -205,20 +201,6 @@
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
-}
-
-.project-badge-logo {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: brightness(0.9);
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.project-badge-logo:hover {
-  filter: brightness(1.2);
-  transform: scale(1.15);
 }
 
 /* Estilos del carrusel */
@@ -304,14 +286,6 @@
   width: 24px;
   border-radius: 4px;
 }
-
-.project-links {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-
 
 .project-link {
   display: flex;

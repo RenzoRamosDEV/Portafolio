@@ -123,24 +123,6 @@
   flex-wrap: wrap;
 }
 
-.btn-primary {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 8px;
-  cursor: pointer;
-  letter-spacing: 0.03em;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.btn-primary:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
-
 .btn-secondary {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
@@ -162,42 +144,6 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.btn-icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-
-.btn-secondary:hover .btn-icon {
-  opacity: 1;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-scroll-bar {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
-}
-
-.hero-scroll-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.18);
-  text-transform: uppercase;
-}
 
 @media (max-width: 720px) {
   .hero {

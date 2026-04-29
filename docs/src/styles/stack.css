@@ -46,51 +46,9 @@
   text-align: right;
 }
 
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
 .stack-section {
   padding: 100px 120px;
   overflow: hidden;
-}
-
-.stack-group {
-  margin-bottom: 52px;
-}
-
-.stack-group-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  opacity: 0.75;
-}
-
-.stack-group-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.stack-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.stack-grid .stack-card {
-  width: 190px;
-  flex-shrink: 0;
 }
 
 /* ── Compact row layout ───────────────────────────── */
@@ -375,50 +333,6 @@
   margin: 0;
 }
 
-.stack-carousel-wrap {
-  overflow: hidden;
-  margin-bottom: 14px;
-  position: relative;
-  padding: 15px 0;
-}
-
-.stack-carousel-wrap::before,
-.stack-carousel-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 190px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.stack-carousel-wrap::before {
-  left: 0;
-  background: linear-gradient(to right, #04000e, transparent);
-}
-
-.stack-carousel-wrap::after {
-  right: 0;
-  background: linear-gradient(to left, #04000e, transparent);
-}
-
-
-.stack-carousel-track {
-  display: flex;
-  width: max-content;
-  gap: 14px;
-  animation: marquee 40s linear infinite;
-}
-
-.stack-carousel-track.rev {
-  animation: marqueeRev 48s linear infinite;
-}
-
-.stack-carousel-wrap:hover .stack-carousel-track {
-  animation-play-state: paused;
-}
-
 .stack-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -503,20 +417,6 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.28);
   font-weight: 300;
-}
-
-.stack-item-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
 }
 
 @media (max-width: 720px) {

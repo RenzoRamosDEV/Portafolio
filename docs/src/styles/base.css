@@ -45,16 +45,6 @@ body.light-theme .nav-link:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-body.light-theme .theme-toggle-btn {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .theme-toggle-btn:hover {
-  background: rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
 body.light-theme .section-tag,
 body.light-theme .section-title,
 body.light-theme h1, body.light-theme h2, body.light-theme h3 {

@@ -26,7 +26,5 @@ export const SCHEMES = {
 };
 
 export const TWEAK_DEFAULTS = {
-  accentScheme: 'emerald-teal',
-  starDensity: 'normal',
-  cardStyle: 'glass'
+  accentScheme: 'emerald-teal'
 };
