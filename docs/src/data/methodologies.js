@@ -1,17 +1,20 @@
 export const METHODOLOGIES = [
-  { cat: 'arch', name: 'SOLID Principles', label: 'SLD', color: '#fb923c', desc: 'Principios de diseño orientado a objetos que garantizan código mantenible, desacoplado y escalable.' },
-  { cat: 'arch', name: 'Clean Architecture', label: 'CA', color: '#a78bfa', desc: 'Separación de capas donde el dominio es independiente de frameworks y detalles externos.' },
 
-  { cat: 'dev', name: 'Spec-Driven Development', label: 'SDD', color: '#22c55e', desc: 'Implementación basada en especificaciones claras que definen el comportamiento del sistema.' },
-  { cat: 'dev', name: 'AI-Assisted Development', label: 'AID', color: '#38bdf8', desc: 'Uso de inteligencia artificial para acelerar desarrollo, debugging y refactorización.' },
-  { cat: 'dev', name: 'Prompt Engineering', label: 'PE', color: '#0ea5e9', desc: 'Diseño de prompts optimizados para obtener mejores resultados en herramientas de IA.' },
+  { cat: 'arch', name: 'SOLID Principles', label: 'SLD', color: '#fb923c', desc: 'Responsabilidad única, abierto/cerrado, sustitución de Liskov, interfaz de segregación, inversión de dependencias' },
+  { cat: 'arch', name: 'Clean Architecture', label: 'CA', color: '#a78bfa', desc: 'Estructura por capas que mantiene el dominio independiente de frameworks y detalles externos' },
 
-  { cat: 'testing', name: 'Integration Testing', label: 'IT', color: '#f59e0b', desc: 'Pruebas que validan el comportamiento conjunto de componentes usando el contexto real de la aplicación.' },
-  { cat: 'testing', name: 'Testcontainers', label: 'TC', color: '#ef4444', desc: 'Testing con contenedores Docker para ejecutar dependencias reales como bases de datos.' },
-  { cat: 'testing', name: 'Test-Driven Development', label: 'TDD', color: '#f472b6', desc: 'Desarrollo guiado por pruebas: primero test, luego implementación y refactorización.' },
+  { cat: 'ai', name: 'Prompt Engineering', label: 'PE', color: '#0ea5e9', desc: 'Diseño de instrucciones optimizadas para maximizar la precisión de modelos de lenguaje' },
+  { cat: 'ai', name: 'Agentic Workflows', label: 'AW', color: '#38bdf8', desc: 'Uso de agentes autónomos para la ejecución, debugging y refactorización proactiva de código' },
+  { cat: 'ai', name: 'AI-Assisted', label: 'AA', color: '#0ea5e9', desc: 'Integración de copilotos inteligentes para soporte en tiempo real, completado de código y sugerencias contextuales' },
 
-  { cat: 'process', name: 'Git Flow / Trunk-Based', label: 'GIT', color: '#6366f1', desc: 'Estrategias de ramificación en Git para desarrollo colaborativo y despliegues controlados.' },
-  { cat: 'process', name: 'Agile (Scrum/Kanban)', label: 'AG', color: '#818cf8', desc: 'Metodologías ágiles basadas en iteraciones cortas, feedback continuo y entrega incremental.' },
-  { cat: 'process', name: 'Responsive UI', label: 'RUI', color: '#06b6d4', desc: 'Diseño de interfaces adaptables a distintos dispositivos y tamaños de pantalla.' },
-  { cat: 'process', name: 'Component-Based UI', label: 'CUI', color: '#14b8a6', desc: 'Construcción de interfaces mediante componentes reutilizables y desacoplados.' },
+  { cat: 'testing', name: 'Test-Driven Development', label: 'TDD', color: '#f472b6', desc: 'Metodología donde las pruebas guían el diseño y la implementación de la lógica' },
+  { cat: 'testing', name: 'Integration Testing', label: 'IT', color: '#f59e0b', desc: 'Validación del flujo completo entre módulos y servicios en entornos reales' },
+  { cat: 'testing', name: 'Testcontainers', label: 'TC', color: '#ef4444', desc: 'Testing con contenedores efímeros para dependencias reales como bases de datos' },
+  { cat: "testing", name: "Mockito", label: "M", color: "#ef4444", desc: "Creación de dobles de prueba (mocks y spies) para aislar unidades de código y verificar comportamientos" },
+  { cat: 'process', name: 'Git Flow / Trunk-Based', label: 'GIT', color: '#6366f1', desc: 'Estrategias de ramificación para gestión de versiones y despliegue continuo' },
+  { cat: 'process', name: 'Agile (Scrum/Kanban)', label: 'AG', color: '#818cf8', desc: 'Gestión de proyectos basada en entregas iterativas y mejora continua' },
+  { cat: 'process', name: 'Spec-Driven Development', label: 'SDD', color: '#22c55e', desc: 'Desarrollo basado en especificaciones técnicas previas a la implementación' },
+
+  { cat: 'ui', name: 'Component-Based UI', label: 'CUI', color: '#14b8a6', desc: 'Construcción de interfaces mediante componentes reutilizables y desacoplados' },
+  { cat: 'ui', name: 'Responsive Design', label: 'RUI', color: '#06b6d4', desc: 'Creación de experiencias visuales adaptables a cualquier dispositivo o resolución' },
 ];
