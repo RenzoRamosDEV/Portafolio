@@ -410,28 +410,38 @@
     overflow: hidden;
     height: auto;
     width: 100%;
+    display: flex;
   }
 
-  /* Cards se adaptan: 1 card = 100%, 2 cards = 50% cada una */
+  /* Default: Cards se adaptan dinámicamente */
   .exp-layout--mobile .exp-card-small {
-    flex: 1;
     min-width: 0;
     min-height: auto;
     padding: 14px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Cuando hay solo 1 card en mobile: ocupa todo el ancho */
-  .exp-layout--mobile.exp-cards--1 .exp-card-small {
-    flex: 1;
-    width: 100%;
-    max-width: 100%;
-  }
+  @media (max-width: 720px) {
+    .exp-layout--mobile.exp-cards--1 .exp-list {
+      gap: 0;
+    }
+    
+    .exp-layout--mobile.exp-cards--1 .exp-card-small {
+      flex: 1 1 100% !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0;
+    }
 
-  /* Cuando hay 2 cards en mobile: cada una ocupa 50% */
-  .exp-layout--mobile.exp-cards--2 .exp-card-small {
-    flex: 1;
-    width: calc(50% - 5px);
-    max-width: calc(50% - 5px);
+    /* Cuando hay 2 cards en mobile: cada una ocupa 50% */
+    .exp-layout--mobile.exp-cards--2 .exp-card-small {
+      flex: 1 1 calc(50% - 5px) !important;
+      width: calc(50% - 5px) !important;
+      max-width: calc(50% - 5px) !important;
+      min-width: 0;
+    }
   }
 
   /* Flechas ◀▶: fila centrada debajo de las cards */
