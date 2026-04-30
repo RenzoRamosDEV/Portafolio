@@ -2,20 +2,63 @@
 <html lang="es">
 
 <head>
+  <!-- BASE -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+  <title>Renzo Ramos | Portafolio</title>
+  <meta name="description" content="Portfolio de Renzo Ramos, desarrollador de software. Proyectos, experiencia y soluciones." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#04000E" />
+
+  <!-- CANONICAL (SEO) -->
+  <link rel="canonical" href="https://renzoramosdev.github.io/RenzoRamos/" />
+
+  <!-- OPEN GRAPH (SOCIAL) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://renzoramosdev.github.io/RenzoRamos/" />
+  <meta property="og:title" content="Renzo Ramos | Portafolio" />
+  <meta property="og:description" content="Desarrollador de software enfocado en crear soluciones modernas y escalables." />
+  <meta property="og:image" content="%BASE_URL%iconpage.png" />
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Renzo Ramos | Portafolio" />
+  <meta name="twitter:description" content="Desarrollador de software enfocado en soluciones modernas y escalables." />
+  <meta name="twitter:image" content="%BASE_URL%iconpage.png" />
+
+  <!-- FAVICON / ICONOS -->
   <link rel="icon" type="image/png" href="%BASE_URL%iconpage.png" />
+  <link rel="apple-touch-icon" href="%BASE_URL%iconpage.png" />
+
+  <!-- PWA (PROGRESSIVE WEB APP) -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- PERFORMANCE (FONTS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&
+    family=Space+Grotesk:wght@300;400;500;600;700&
+    family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet" />
+
+  <!-- PERFORMANCE HINTS -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 </head>
 
 <body>
+  <!-- BACKGROUND LAYERS -->
   <canvas id="starfield"></canvas>
   <canvas id="cursor-trail"></canvas>
+
+  <!-- APP ROOT -->
   <div id="root"></div>
+
+  <!-- ENTRY POINT -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
