@@ -256,28 +256,40 @@
   color: rgba(255, 255, 255, 0.15);
 }
 
-/* ── Header con flechas ──────────────────────────────────── */
-.projects-header {
+/* ── Paginación ──────────────────────────────────────────── */
+.projects-pagination {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 32px;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
+  margin-top: 24px;
 }
 
-.projects-header .section-tag {
-  margin-bottom: 8px;
-}
-
-.projects-header .section-title {
-  margin-bottom: 0;
-}
-
-.projects-nav {
+.projects-dots {
   display: flex;
   gap: 8px;
-  flex-shrink: 0;
-  padding-bottom: 4px;
+  align-items: center;
+}
+
+.projects-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.projects-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.projects-dot.active {
+  background: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  border-radius: 4px;
 }
 
 .projects-nav-btn {
@@ -304,11 +316,11 @@
   cursor: default;
 }
 
-/* ── Tablet ──────────────────────────────────────────────── */
+/* ── Tablet (721px – 1024px) ────────────────────────────── */
 @media (min-width: 721px) and (max-width: 1024px) {
   .project-card {
-    flex: 0 0 calc(50% - 8px);
-    aspect-ratio: 4 / 3;
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
   }
 
   .project-body {
@@ -316,15 +328,53 @@
   }
 }
 
-/* ── Mobile ──────────────────────────────────────────────── */
+/* ── Mobile (≤ 720px) ───────────────────────────────────── */
 @media (max-width: 720px) {
-  .project-card {
-    flex: 0 0 82vw;
-    aspect-ratio: 4 / 3;
+  .projects-scroll-wrapper {
+    gap: 12px;
   }
 
-  .project-body {
+  .project-card {
+    flex: 0 0 88vw;
+    aspect-ratio: unset;
+    min-height: unset;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Imagen encima como bloque propio */
+  .project-card .project-bg {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  }
+
+  .project-card .project-bg-overlay {
+    display: none;
+  }
+
+  /* Texto debajo con fondo oscuro */
+  .project-card .project-body {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
     padding: 20px;
+    z-index: auto;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .project-badge {
+    font-size: 10px;
+    padding: 4px 9px;
+  }
+
+  .projects-pagination {
+    margin-top: 20px;
   }
 
   .project-title {
@@ -339,5 +389,9 @@
   .project-badge {
     font-size: 10px;
     padding: 4px 9px;
+  }
+
+  .projects-pagination {
+    margin-top: 20px;
   }
 }
