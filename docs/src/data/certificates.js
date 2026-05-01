@@ -26,7 +26,7 @@ export const certificateItems = [
     company: "BIG SCHOOL",
     period: "mar. 2026",
     location: "Online",
-    credential: "https://media.licdn.com/dms/image/v2/D4E2DAQGBotbg0sY_KQ/profile-treasury-document-images_800/B4EZzn8Z1JIEAc-/1/1773417900843?e=1778112000&v=beta&t=f5m4BqHbkr3eO2EGxBbOv7tCLjrjbRbU5opU2NlnSiw",
+    credential: null,
     pdf: getPublicPath("/certificates/CertificadoDeIniciacionAlDesarrolloConIA.pdf"),
     preview: getPublicPath("/certificates/bigschool-ia-preview-1.png"),
     desc: "Formación de 6 horas sobre el flujo de trabajo de 'cero a Producción'. Fundamentos para integrar modelos de IA en proyectos reales.",
