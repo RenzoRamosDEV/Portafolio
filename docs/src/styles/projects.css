@@ -256,6 +256,13 @@
   color: rgba(255, 255, 255, 0.15);
 }
 
+/* En desktop, ocultar paginación si solo hay 2 cards */
+@media (min-width: 1025px) {
+  .projects-pagination.projects-pagination--desktop-hidden {
+    display: none !important;
+  }
+}
+
 /* ── Paginación ──────────────────────────────────────────── */
 .projects-pagination {
   display: flex;

@@ -56,7 +56,7 @@ export function ProjectsSection({ scheme }) {
         ))}
       </div>
 
-      {PROJECTS.length > 1 && <div className="projects-pagination">
+      {PROJECTS.length > 1 && <div className={`projects-pagination ${PROJECTS.length <= 2 ? 'projects-pagination--desktop-hidden' : ''}`}>
         <button
           className={`projects-nav-btn ${current === 0 ? 'disabled' : ''}`}
           onClick={() => scrollBy(-1)}

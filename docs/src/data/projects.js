@@ -30,13 +30,4 @@ export const PROJECTS = [
     demo: '#',
     repo: 'https://github.com/RenzoRamosDEV/Inventario'
   }
-  ,{
-    num: '03',
-    title: 'Proyecto de Prueba',
-    images: [],
-    desc: 'Proyecto temporal para testear el scroll horizontal entre cards.',
-    badges: ['Test', 'Placeholder'],
-    demo: '#',
-    repo: '#'
-  }
 ];
