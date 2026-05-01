@@ -59,7 +59,6 @@ export function ProjectCard({ proj, scheme }) {
         <div className="project-bg-overlay" />
 
         <div className="project-body">
-          <div className="project-num">{proj.num}</div>
           <div className="project-title">{proj.title}</div>
           <p className="project-desc">{proj.desc}</p>
           <div className="project-footer">
