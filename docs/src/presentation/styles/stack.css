@@ -1,0 +1,566 @@
+/* ============================================================
+ * stack.css — Sección de Stack tecnológico y Metodologías.
+ *
+ * Layout: la grilla `stack-layout` reparte chips a la izquierda y
+ * el detalle a la derecha (cuando hay selección). En la variante
+ * `--rev` (metodologías), invierte el orden visual. La detail card
+ * solo ocupa columna cuando existe (modificador `.has-card`).
+ *
+ * `.section` (compartida con experience) define el padding base
+ * horizontal de 180px que alinea todas las secciones del portafolio.
+ * ============================================================ */
+
+.section {
+  padding: 120px 180px;
+  position: relative;
+}
+
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag--right {
+  justify-content: flex-end;
+}
+
+.section-tag--right::before {
+  order: 1;
+}
+
+.section-tag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+.section-title--right {
+  text-align: right;
+}
+
+.stack-section {
+  padding: 100px 120px;
+  overflow: hidden;
+}
+
+/* ── Compact row layout ───────────────────────────── */
+
+.stack-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.stack-layout--rev {
+  flex-direction: row-reverse;
+}
+
+.stack-layout--rev .stack-compact-list {
+  align-items: stretch;
+}
+
+.stack-layout--rev .stack-row {
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+/* Con card activa: extiende las líneas exactamente el ancho de la card+gap */
+.stack-layout--rev.has-card .stack-row {
+  border-bottom: none;
+  border-top: none;
+}
+
+.stack-layout--rev.has-card .stack-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -300px;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.stack-layout--rev.has-card .stack-row:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -300px;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* Chips pegados al label (derecha) — espacio libre queda a la izquierda */
+.stack-layout--rev .stack-row-chips {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.stack-compact-list {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.stack-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stack-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stack-row-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 150px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.stack-layout--rev .stack-row-label {
+  text-align: right;
+}
+
+.stack-row-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stack-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px 9px 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  cursor: default;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.stack-chip:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.stack-chip img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+.stack-chip-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+.stack-chip--selected {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stack-chip--selected .stack-chip-name {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stack-chip-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.stack-detail-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ── Detail card ───────────────────────────────────── */
+
+.stack-detail {
+  width: 280px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%), #04000e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 28px 26px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: detailIn 0.18s ease;
+}
+
+.stack-layout--rev .stack-detail {
+  align-self: stretch;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 22px;
+}
+
+.stack-layout--rev .stack-detail-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
+.stack-layout--rev .stack-detail-icon img,
+.stack-layout--rev .stack-detail-badge {
+  width: 52px;
+  height: 52px;
+}
+
+.stack-layout--rev .stack-detail-name {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+@keyframes detailIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.stack-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.15s;
+}
+
+.stack-detail-close:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stack-detail-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-detail-icon img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.stack-detail-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.stack-detail-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 300;
+  margin: 0;
+}
+
+.stack-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: default;
+  flex-shrink: 0;
+  width: 200px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stack-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top right,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 30%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+.stack-card:hover::before {
+  opacity: 1;
+}
+
+.stack-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.13);
+  transform: scale(1.08);
+}
+
+.stack-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-card-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.stack-card-icon-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.stack-card-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+.stack-card-desc {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.28);
+  font-weight: 300;
+}
+
+@media (min-width: 721px) and (max-width: 1100px) {
+  .section {
+    padding: 80px 40px;
+  }
+
+  .stack-section {
+    padding: 80px 40px;
+  }
+
+  /* Layout: columna — la detail card va debajo de la lista */
+  .stack-layout,
+  .stack-layout--rev {
+    flex-direction: column;
+  }
+
+  /* Revertir row-reverse del layout invertido */
+  .stack-layout--rev .stack-row {
+    flex-direction: row;
+  }
+
+  .stack-layout--rev .stack-row-label {
+    text-align: left;
+  }
+
+  .stack-layout--rev .stack-row-chips {
+    justify-content: flex-start;
+  }
+
+  /* Detail card: grid icono | nombre+desc bien centrados */
+  .stack-detail,
+  .stack-layout--rev .stack-detail {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 18px;
+    align-items: center;
+    padding: 20px 24px;
+    align-self: stretch;
+  }
+
+  .stack-detail-icon,
+  .stack-layout--rev .stack-detail-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .stack-detail-icon img,
+  .stack-layout--rev .stack-detail-icon img,
+  .stack-layout--rev .stack-detail-badge {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stack-detail-name,
+  .stack-layout--rev .stack-detail-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 22px;
+    margin-bottom: 4px;
+    align-self: end;
+  }
+
+  .stack-detail-desc {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  /* Títulos derechos: alineados a la derecha en tablet */
+  .section-title--right {
+    text-align: right;
+  }
+
+  .section-tag--right {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .stack-section {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: clamp(30px, 9vw, 48px);
+  }
+
+  /* Row: label arriba, chips abajo */
+  .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .stack-row-label {
+    width: auto;
+    font-size: 11px;
+  }
+
+  .stack-row-chips {
+    width: 100%;
+  }
+
+  /* Layout: columna en mobile, detail card encima/debajo */
+  .stack-layout {
+    flex-direction: column;
+  }
+
+  .stack-layout--rev {
+    flex-direction: column;
+  }
+
+  .stack-layout--rev .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stack-layout--rev .stack-row-label {
+    text-align: left;
+  }
+
+  .stack-layout--rev .stack-row-chips {
+    justify-content: flex-start;
+  }
+
+  /* Ocultar detail card en mobile */
+  .stack-detail {
+    display: none;
+  }
+
+  /* Titulo right: centrado en mobile */
+  .section-title--right {
+    text-align: left;
+  }
+
+  .section-tag--right {
+    justify-content: flex-start;
+  }
+}
