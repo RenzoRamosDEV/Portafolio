@@ -465,12 +465,12 @@
  * columna izquierda fija (220px) para el visual de la empresa.
  * Reusa `.cert-modal-info` para el panel derecho. */
 .exp-modal {
-  max-width: 720px;
+  max-width: 860px;
 }
 
 .exp-modal-body {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 380px;
   max-height: 90vh;
   overflow: hidden;
