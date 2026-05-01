@@ -270,6 +270,21 @@
   color: rgba(255, 255, 255, 0.15);
 }
 
+/* En rango específico alrededor de 1050px, solo mostrar título */
+@media (min-width: 1025px) and (max-width: 1590px) {
+  .project-desc {
+    display: none;
+  }
+
+  .project-footer {
+    display: none;
+  }
+
+  .project-body {
+    padding: 28px 32px;
+  }
+}
+
 /* En desktop, ocultar paginación si solo hay 2 cards */
 @media (min-width: 1025px) {
   .projects-pagination.projects-pagination--desktop-hidden {
