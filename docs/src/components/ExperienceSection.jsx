@@ -5,6 +5,8 @@ import { educationItems } from '../data/education';
 import { certificateItems } from '../data/certificates';
 import { ExpCardSmall } from './ExpCardSmall';
 import { ExpCardDetail } from './ExpCardDetail';
+import { CertificateCard } from './CertificateCard';
+import { CertificateModal } from './CertificateModal';
 
 const VISIBLE_DESKTOP = 3;
 const VISIBLE_TABLET  = 3;
@@ -19,9 +21,10 @@ const TABS = [
 export function ExperienceSection({ scheme }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
 
-  const [activeTab, setActiveTab]       = useState('experiencia');
-  const [selectedCard, setSelectedCard] = useState(0);
-  const [scrollIndex, setScrollIndex]   = useState(0);
+  const [activeTab, setActiveTab]         = useState('experiencia');
+  const [selectedCard, setSelectedCard]   = useState(0);
+  const [scrollIndex, setScrollIndex]     = useState(0);
+  const [certModalData, setCertModalData] = useState(null);
   const [screenSize, setScreenSize] = useState(() => {
     const width = window.innerWidth;
     if (width <= 720) return 'mobile';
@@ -82,50 +85,71 @@ export function ExperienceSection({ scheme }) {
         ))}
       </div>
 
-      <div className={`exp-layout exp-layout--${screenSize} exp-cards--${actualVisibleCount}`}>
-
-        <div className="exp-list-container">
-          <div className="exp-list">
-            {currentVisibleItems.map((item, idx) => (
-              <ExpCardSmall
-                key={scrollIndex + idx}
+      {activeTab === 'certificados' ? (
+        <>
+          <div className="cert-grid">
+            {certificateItems.map((item, idx) => (
+              <CertificateCard
+                key={idx}
                 data={item}
-                isSelected={selectedCard === scrollIndex + idx}
-                onSelect={() => setSelectedCard(scrollIndex + idx)}
                 scheme={scheme}
+                onClick={() => setCertModalData(item)}
               />
             ))}
           </div>
-        </div>
+          <CertificateModal
+            data={certModalData}
+            scheme={scheme}
+            isOpen={!!certModalData}
+            onClose={() => setCertModalData(null)}
+          />
+        </>
+      ) : (
+        <div className={`exp-layout exp-layout--${screenSize} exp-cards--${actualVisibleCount}`}>
 
-        <div className="exp-scroll-controls">
-          <button
-            className="exp-scroll-btn"
-            onClick={() => setScrollIndex(Math.max(0, scrollIndex - 1))}
-            disabled={!canScrollUp || currentItems.length <= visibleCount}
-            style={{ color: canScrollUp ? s.a : 'rgba(255,255,255,0.2)' }}
-            title="Anterior"
-          >
-            {screenSize === 'mobile' || screenSize === 'tablet' ? '◀' : '▲'}
-          </button>
-          <button
-            className="exp-scroll-btn"
-            onClick={() => setScrollIndex(Math.min(currentItems.length - visibleCount, scrollIndex + 1))}
-            disabled={!canScrollDown || currentItems.length <= visibleCount}
-            style={{ color: canScrollDown ? s.a : 'rgba(255,255,255,0.2)' }}
-            title="Siguiente"
-          >
-            {screenSize === 'mobile' || screenSize === 'tablet' ? '▶' : '▼'}
-          </button>
-        </div>
+          <div className="exp-list-container">
+            <div className="exp-list">
+              {currentVisibleItems.map((item, idx) => (
+                <ExpCardSmall
+                  key={scrollIndex + idx}
+                  data={item}
+                  isSelected={selectedCard === scrollIndex + idx}
+                  onSelect={() => setSelectedCard(scrollIndex + idx)}
+                  scheme={scheme}
+                />
+              ))}
+            </div>
+          </div>
 
-        <div className="exp-detail">
-          {currentItems[selectedCard] && (
-            <ExpCardDetail data={currentItems[selectedCard]} scheme={scheme} />
-          )}
-        </div>
+          <div className="exp-scroll-controls">
+            <button
+              className="exp-scroll-btn"
+              onClick={() => setScrollIndex(Math.max(0, scrollIndex - 1))}
+              disabled={!canScrollUp || currentItems.length <= visibleCount}
+              style={{ color: canScrollUp ? s.a : 'rgba(255,255,255,0.2)' }}
+              title="Anterior"
+            >
+              {screenSize === 'mobile' || screenSize === 'tablet' ? '◀' : '▲'}
+            </button>
+            <button
+              className="exp-scroll-btn"
+              onClick={() => setScrollIndex(Math.min(currentItems.length - visibleCount, scrollIndex + 1))}
+              disabled={!canScrollDown || currentItems.length <= visibleCount}
+              style={{ color: canScrollDown ? s.a : 'rgba(255,255,255,0.2)' }}
+              title="Siguiente"
+            >
+              {screenSize === 'mobile' || screenSize === 'tablet' ? '▶' : '▼'}
+            </button>
+          </div>
 
-      </div>
+          <div className="exp-detail">
+            {currentItems[selectedCard] && (
+              <ExpCardDetail data={currentItems[selectedCard]} scheme={scheme} />
+            )}
+          </div>
+
+        </div>
+      )}
     </section>
   );
 }
