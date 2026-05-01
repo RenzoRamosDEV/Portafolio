@@ -1,3 +1,14 @@
+/* ============================================================
+ * projects.css — Sección de proyectos destacados.
+ *
+ * Layout: scroll horizontal nativo (`projects-scroll-wrapper`)
+ * con cada `.project-card` ocupando su propio ancho. La paginación
+ * (flechas + dots) sincroniza el `current` desde JS.
+ *
+ * Cada card tiene fondo carrusel + overlay + cuerpo apilado:
+ * imagen al fondo, gradiente intermedio para legibilidad, texto encima.
+ * ============================================================ */
+
 /* ── Scroll horizontal container ────────────────────────── */
 .projects-scroll-wrapper {
   overflow-x: auto;

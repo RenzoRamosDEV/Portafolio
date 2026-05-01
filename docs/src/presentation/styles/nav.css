@@ -1,3 +1,11 @@
+/* ============================================================
+ * nav.css — Barra de navegación superior fija.
+ *
+ * Layout: posición `fixed` para que el nav se mantenga visible al
+ * scrollear. El padding-top de las secciones compensa la altura del
+ * nav (definida implícitamente por su contenido + padding interno).
+ * ============================================================ */
+
 .nav {
   position: fixed;
   top: 0;

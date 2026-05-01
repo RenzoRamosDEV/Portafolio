@@ -1,8 +1,28 @@
 <!DOCTYPE html>
+<!--
+  index.html — entry point del bundle Vite.
+
+  Estructura general:
+    <head>
+      • SEO base (charset, viewport, title, description, theme-color, robots)
+      • Canonical para evitar contenido duplicado en buscadores
+      • Open Graph + Twitter Cards para previews al compartir el link
+      • Favicon e iconos para PWA
+      • Manifest + meta de Apple PWA (instalable en iOS)
+      • Preconnect/dns-prefetch a Google Fonts (mejora TTFB de la fuente)
+      • Carga única de las 3 familias tipográficas (Outfit, Space Grotesk, JetBrains Mono)
+    <body>
+      • Dos canvas absolutos para los efectos de fondo (starfield + cursor trail)
+      • #root: contenedor de React
+      • Script ES module que arranca main.jsx (cabe en producción gracias a Vite bundler)
+
+  `%BASE_URL%` lo sustituye Vite con el `base` configurado en vite.config.js,
+  para que los assets funcionen tanto en dominio raíz como en subruta (GH Pages).
+-->
 <html lang="es">
 
 <head>
-  <!-- BASE -->
+  <!-- BASE — codificación, viewport responsive y metadatos SEO básicos -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Renzo Ramos | Portafolio</title>
@@ -10,56 +30,57 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#04000E" />
 
-  <!-- CANONICAL (SEO) -->
+  <!-- CANONICAL — URL preferida para los buscadores (evita duplicados) -->
   <link rel="canonical" href="https://renzoramosdev.github.io/RenzoRamos/" />
 
-  <!-- OPEN GRAPH (SOCIAL) -->
+  <!-- OPEN GRAPH — preview al compartir en redes sociales -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://renzoramosdev.github.io/RenzoRamos/" />
   <meta property="og:title" content="Renzo Ramos | Portafolio" />
   <meta property="og:description" content="Desarrollador de software enfocado en crear soluciones modernas y escalables." />
   <meta property="og:image" content="%BASE_URL%iconpage.png" />
 
-  <!-- TWITTER CARDS -->
+  <!-- TWITTER CARDS — preview específico para Twitter/X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Renzo Ramos | Portafolio" />
   <meta name="twitter:description" content="Desarrollador de software enfocado en soluciones modernas y escalables." />
   <meta name="twitter:image" content="%BASE_URL%iconpage.png" />
 
-  <!-- FAVICON / ICONOS -->
+  <!-- FAVICON / ICONOS — pestaña, marcador iOS y precomposed legacy -->
   <link rel="icon" type="image/png" href="iconpage.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="iconpage.png" />
   <link rel="apple-touch-icon-precomposed" href="iconpage.png" />
 
-  <!-- PWA (PROGRESSIVE WEB APP) -->
+  <!-- PWA — habilita instalación y modo standalone en iOS -->
   <link rel="manifest" href="manifest.json" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- PERFORMANCE (FONTS) -->
+  <!-- PERFORMANCE — pre-resuelve DNS y abre conexión TLS antes de pedir las fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Una sola request CSS combina las 3 familias tipográficas -->
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&
     family=Space+Grotesk:wght@300;400;500;600;700&
     family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet" />
 
-  <!-- PERFORMANCE HINTS -->
+  <!-- Hints adicionales para conexiones tardías (failover) -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 </head>
 
 <body>
-  <!-- BACKGROUND LAYERS -->
+  <!-- BACKGROUND LAYERS — canvases en posición absoluta detrás de la app -->
   <canvas id="starfield"></canvas>
   <canvas id="cursor-trail"></canvas>
 
-  <!-- APP ROOT -->
+  <!-- APP ROOT — React monta toda la UI dentro de este nodo -->
   <div id="root"></div>
 
-  <!-- ENTRY POINT -->
+  <!-- ENTRY POINT — Vite procesa este import como módulo y bundle todo el árbol -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

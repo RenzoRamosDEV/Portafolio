@@ -1,3 +1,15 @@
+/* ============================================================
+ * modal.css — Modal del detalle de proyecto.
+ *
+ * Layout: overlay fixed full-viewport con backdrop oscuro + contenido
+ * centrado por flex. El `.modal-content` se monta como columna que
+ * apila header → carrusel → footer (descripción + badges + links).
+ *
+ * Para Certificate/Experience modals los estilos viven en experience.css
+ * (prefijo `cert-modal-*` / `exp-modal-*`). Este archivo es solo del
+ * modal de proyectos.
+ * ============================================================ */
+
 /* Modal */
 .modal-overlay {
   position: fixed;

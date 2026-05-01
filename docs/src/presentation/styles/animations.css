@@ -1,3 +1,11 @@
+/* ============================================================
+ * animations.css — Keyframes y utilidades de animación reutilizables.
+ *
+ * - floatBlob: movimiento orgánico para los blobs del hero
+ * - fade-up:   entrada de elementos con offset Y + opacidad
+ *              (las clases fade-up-1..4 escalonan la entrada)
+ * ============================================================ */
+
 @keyframes floatBlob {
   from {
     transform: translateY(0) scale(1);

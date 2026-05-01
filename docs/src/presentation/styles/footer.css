@@ -1,3 +1,10 @@
+/* ============================================================
+ * footer.css — Pie de página.
+ *
+ * Layout: flex con dos bloques (nombre + copy) separados; padding
+ * horizontal alineado con el resto de secciones (180px).
+ * ============================================================ */
+
 .footer {
   padding: 60px 180px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);

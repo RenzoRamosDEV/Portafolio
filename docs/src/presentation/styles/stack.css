@@ -1,3 +1,15 @@
+/* ============================================================
+ * stack.css — Sección de Stack tecnológico y Metodologías.
+ *
+ * Layout: la grilla `stack-layout` reparte chips a la izquierda y
+ * el detalle a la derecha (cuando hay selección). En la variante
+ * `--rev` (metodologías), invierte el orden visual. La detail card
+ * solo ocupa columna cuando existe (modificador `.has-card`).
+ *
+ * `.section` (compartida con experience) define el padding base
+ * horizontal de 180px que alinea todas las secciones del portafolio.
+ * ============================================================ */
+
 .section {
   padding: 120px 180px;
   position: relative;

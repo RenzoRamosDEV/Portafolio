@@ -1,0 +1,91 @@
+/* ============================================================
+ * base.css — Reset, defaults globales y layers de fondo.
+ *
+ * Define:
+ *  - Reset universal y box-sizing
+ *  - Configuración de body (fondo dark, tipografía, no-scroll-x)
+ *  - Scrollbar personalizada
+ *  - Posicionamiento de los canvas de fondo (#starfield, #cursor-trail)
+ *  - Wrapper raíz (.portfolio-root) que se apila sobre los canvas
+ *
+ * No define componentes — esos viven en sus propios archivos.
+ * ============================================================ */
+
+
+/* ── Reset universal ───────────────────────────────────────────
+ * `box-sizing: border-box` evita sumar padding al ancho — predecible
+ * para layouts en grid/flex. Reseteo de margin/padding para no luchar
+ * contra los defaults del navegador. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ── Documento ───────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;     /* anchors y window.scrollTo() suaves */
+  overflow-x: hidden;          /* corta cualquier overflow accidental */
+  width: 100%;
+}
+
+body {
+  background: #04000e;         /* dark base — combina con el starfield */
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+
+/* ── Scrollbar (WebKit) ─────────────────────────────────────────
+ * Fina y discreta para no interferir con el contenido. Color del thumb
+ * usa el morado del scheme por defecto con opacidad para que tinte sin
+ * dominar. */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(123, 47, 247, 0.4);
+  border-radius: 2px;
+}
+
+
+/* ── Background layers ──────────────────────────────────────────
+ * Ambos canvas son fixed full-viewport. `pointer-events: none` evita
+ * que capturen clicks que deberían ir a la app. El starfield queda
+ * detrás (z=0); el cursor trail por encima de la app (z=50) para que
+ * las partículas pasen "sobre" los componentes. */
+#starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#cursor-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+
+/* ── Root wrapper ───────────────────────────────────────────────
+ * Contiene toda la app sobre los canvas. z=1 lo eleva sobre el
+ * starfield pero deja el cursor trail por encima. */
+.portfolio-root {
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}

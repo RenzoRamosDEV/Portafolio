@@ -1,3 +1,12 @@
+/* ============================================================
+ * hero.css — Sección de presentación inicial.
+ *
+ * Layout: `min-height: 100vh` + flex columna centrada para que el
+ * hero ocupe siempre la primera pantalla. Los blobs de fondo van
+ * absolutos detrás del contenido y se animan con `floatBlob`
+ * (definido en animations.css).
+ * ============================================================ */
+
 .hero {
   min-height: 100vh;
   display: flex;
