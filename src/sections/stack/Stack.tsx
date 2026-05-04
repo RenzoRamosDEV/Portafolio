@@ -45,20 +45,8 @@ export function Stack() {
 
   return (
     <section id="stack" className="min-h-screen bg-black p-[16px]">
-      <div
-        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
-        style={{
-          background: '#1a1d22',
-          backgroundImage:
-            'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          minHeight: 'calc(100vh - 32px)',
-        }}
-      >
-        <div
-          className="absolute inset-0 z-[3] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-        />
+      <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)] min-h-[calc(100vh-32px)]">
+        <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 justify-center">
 

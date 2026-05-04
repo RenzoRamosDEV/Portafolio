@@ -10,23 +10,19 @@ const NAV_ITEMS = [
 
 const FUSED_SECTIONS = ['experiencia-card', 'proyectos', 'stack', 'metodologias']
 
+const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  e.preventDefault()
+  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
+}
+
 export function Navbar() {
   const { scrolled, fused } = useScrollFusion(FUSED_SECTIONS)
-
-  const navBg = '#000000'
-  const textColor = '#A7B4BC'
-  const hoverColor = '#FFFFFF'
   const borderColor = scrolled && !fused ? 'rgba(255,255,255,0.1)' : 'transparent'
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault()
-    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300">
       <nav
-        style={{ backgroundColor: navBg, borderColor }}
+        style={{ backgroundColor: '#000000', borderColor }}
         className={`transition-all duration-300 shadow-lg border ${scrolled && !fused
             ? 'rounded-full px-6 py-2 mt-4 backdrop-blur-md'
             : 'rounded-b-xl md:rounded-b-2xl px-3 py-2 md:px-10 md:py-2.5 lg:px-14 lg:py-3'
@@ -37,11 +33,8 @@ export function Navbar() {
             <li key={targetId}>
               <a
                 href={`#${targetId}`}
-                onClick={(e) => handleClick(e, targetId)}
-                className="text-[13px] sm:text-sm md:text-sm lg:text-base font-medium no-underline transition-colors duration-200 whitespace-nowrap"
-                style={{ color: textColor }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+                onClick={(e) => handleNavClick(e, targetId)}
+                className="nav-link text-[13px] sm:text-sm md:text-sm lg:text-base font-medium no-underline whitespace-nowrap"
               >
                 {label}
               </a>

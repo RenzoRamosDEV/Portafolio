@@ -186,10 +186,7 @@ function TimelineNode({
                   href={item.pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-[11px] no-underline transition-colors duration-200"
-                  style={{ color: LABEL_COLOR }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={e => (e.currentTarget.style.color = LABEL_COLOR)}
+                  className="timeline-link flex items-center gap-1 text-[11px] no-underline"
                 >
                   Ver certificado <ExternalLink className="w-3 h-3" />
                 </a>
@@ -199,10 +196,7 @@ function TimelineNode({
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-[11px] no-underline transition-colors duration-200"
-                  style={{ color: LABEL_COLOR }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={e => (e.currentTarget.style.color = LABEL_COLOR)}
+                  className="timeline-link flex items-center gap-1 text-[11px] no-underline"
                 >
                   Ver credencial <ExternalLink className="w-3 h-3" />
                 </a>
@@ -217,19 +211,8 @@ function TimelineNode({
 
 function ExperienceCard({ targetId }: { targetId: string }) {
   return (
-    <div
-      className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
-      style={{
-        background: '#1a1d22',
-        backgroundImage:
-          'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-        backgroundSize: '64px 64px',
-      }}
-    >
-      <div
-        className="absolute inset-0 z-[3] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-      />
+    <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]">
+      <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{
@@ -291,19 +274,8 @@ function ExperienceCard({ targetId }: { targetId: string }) {
 
 function EducationCard() {
   return (
-    <div
-      className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
-      style={{
-        background: '#1a1d22',
-        backgroundImage:
-          'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-        backgroundSize: '64px 64px',
-      }}
-    >
-      <div
-        className="absolute inset-0 z-[3] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-      />
+    <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]">
+      <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{

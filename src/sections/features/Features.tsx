@@ -196,20 +196,8 @@ export function Features() {
 
   return (
     <section id="proyectos" className="lg:min-h-screen p-3 sm:p-4 bg-black">
-      <div className="relative w-full min-h-[calc(100vh-32px)] rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col pb-20 lg:pb-0">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
-        <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-        />
+      <div className="section-grid relative w-full min-h-[calc(100vh-32px)] rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col pb-20 lg:pb-0">
+        <div className="section-vignette absolute inset-0 z-[1] pointer-events-none" />
 
         <div
           className="relative z-10 flex-1 flex flex-col justify-center"
