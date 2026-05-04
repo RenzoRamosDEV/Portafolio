@@ -1,0 +1,124 @@
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { SectionTitle } from '../../components/ui/SectionTitle'
+import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
+import { StackChip } from './StackChip'
+import { StackDetailCard } from './StackDetailCard'
+import { STACK } from '../../data/stack'
+import type { StackItem } from '../../data/stack'
+
+const STACK_GROUPS = [
+  { key: 'back',        label: 'Backend'  },
+  { key: 'stack-tools', label: 'Tools'    },
+  { key: 'front',       label: 'Frontend' },
+  { key: 'ia',          label: 'IA'       },
+] as const
+
+const stackRows = STACK_GROUPS.map(g => ({ ...g, items: STACK.filter(s => s.cat === g.key) }))
+
+function DesktopStackCard({ item, index }: { item: StackItem; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/10 rounded-xl p-4 flex flex-col gap-3 transition-all duration-200 cursor-default"
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+          <img
+            src={item.icon}
+            alt={item.name}
+            className="w-11 h-11 object-contain"
+            style={{ mixBlendMode: 'screen' }}
+          />
+        </div>
+        <span className="text-[#A7B4BC] font-semibold text-[17px] leading-snug truncate">{item.name}</span>
+      </div>
+      <p className="text-[#A7B4BC]/70 text-[13px] leading-relaxed m-0 line-clamp-3">{item.desc}</p>
+    </motion.div>
+  )
+}
+
+export function Stack() {
+  const [selectedStack, setSelectedStack] = useState<StackItem | null>(null)
+
+  return (
+    <section id="stack" className="bg-black p-[16px]">
+      <div className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col">
+        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
+        <div
+          className="absolute inset-0 z-[2]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
+        <div
+          className="absolute inset-0 z-[3]"
+          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
+        />
+
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 lg:gap-4 py-10 lg:py-10 pb-20">
+
+          <SectionTitle text="Herramientas en mi Stack" align="left" leading="snug" />
+
+          {/* Desktop: cards grandes por grupo */}
+          <div className="hidden lg:flex flex-col gap-3">
+            {stackRows.map((row) => (
+              <div key={row.key} className="flex flex-col gap-2">
+                <span className="text-[13px] font-bold tracking-widest uppercase text-[#A7B4BC]">
+                  {row.label}
+                </span>
+                <div className="grid grid-cols-4 xl:grid-cols-6 gap-2">
+                  {row.items.map((item, i) => (
+                    <DesktopStackCard key={item.name} item={item} index={i} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile: chips + detail card inline */}
+          <div className="flex lg:hidden flex-col">
+            {stackRows.map((row, ri) => (
+              <div key={row.key} className="flex flex-col border-b border-white/5 first:border-t first:border-white/5">
+                <div className="flex flex-col gap-2 py-3">
+                  <span className="text-[11px] font-bold tracking-widest uppercase text-[#A7B4BC]/40">
+                    {row.label}
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {row.items.map((item, i) => (
+                      <StackChip
+                        key={item.name}
+                        item={item}
+                        delay={ri * 0.03 + i * 0.02}
+                        isSelected={selectedStack?.name === item.name}
+                        onClick={() => setSelectedStack(p => p?.name === item.name ? null : item)}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <AnimatePresence>
+                  {selectedStack && row.items.some(i => i.name === selectedStack.name) && (
+                    <StackDetailCard
+                      key={selectedStack.name}
+                      item={selectedStack}
+                      onClose={() => setSelectedStack(null)}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        <div className="relative z-10 flex justify-center pb-8 pt-4">
+          <ScrollIndicator targetId="metodologias" />
+        </div>
+      </div>
+    </section>
+  )
+}
