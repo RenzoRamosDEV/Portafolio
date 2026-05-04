@@ -17,15 +17,16 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string
 
 export function Navbar() {
   const { scrolled, fused } = useScrollFusion(FUSED_SECTIONS)
-  const borderColor = scrolled && !fused ? 'rgba(255,255,255,0.1)' : 'transparent'
+  const isFloating = scrolled && !fused
+  const borderColor = isFloating ? 'rgba(255,255,255,0.1)' : 'transparent'
 
   return (
     <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300">
       <nav
         style={{ backgroundColor: '#000000', borderColor }}
-        className={`transition-all duration-300 shadow-lg border ${scrolled && !fused
-            ? 'rounded-full px-6 py-2 mt-4 backdrop-blur-md'
-            : 'rounded-b-xl md:rounded-b-2xl px-3 py-2 md:px-10 md:py-2.5 lg:px-14 lg:py-3'
+        className={`transition-all duration-300 shadow-lg border ${!scrolled
+            ? 'rounded-b-xl md:rounded-b-2xl px-3 py-2 md:px-10 md:py-2.5 lg:px-14 lg:py-3'
+            : 'rounded-full px-6 py-2 mt-4 backdrop-blur-md'
           }`}
       >
         <ul className="flex items-center gap-3 sm:gap-5 md:gap-8 lg:gap-10 list-none m-0 p-0 flex-nowrap">
