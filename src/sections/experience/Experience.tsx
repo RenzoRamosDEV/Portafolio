@@ -231,7 +231,7 @@ function ExperienceCard({ targetId }: { targetId: string }) {
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
       />
       <div
-        className="relative z-10 flex-1 flex flex-col justify-between"
+        className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{
           padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
           gap: 'clamp(28px,4vw,44px)',
@@ -244,7 +244,7 @@ function ExperienceCard({ targetId }: { targetId: string }) {
         </div>
 
         {/* Mobile: columna única */}
-        <div className="flex md:hidden flex-col gap-[clamp(16px,2vw,24px)]">
+        <div className="flex md:hidden flex-col gap-[clamp(16px,2vw,24px)] max-w-lg mx-auto w-full">
           <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
             <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Laboral</span>
             {TIMELINE_JOBS.map((item, i) => (
@@ -305,7 +305,7 @@ function EducationCard() {
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
       />
       <div
-        className="relative z-10 flex-1 flex flex-col justify-between"
+        className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{
           padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
           gap: 'clamp(28px,4vw,44px)',
@@ -320,7 +320,7 @@ function EducationCard() {
         <div className="w-full bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(16px,2vw,28px)] flex flex-col gap-0">
           <span className="text-[12px] tracking-[0.14em] uppercase mb-4 font-bold" style={{ color: LABEL_COLOR }}>Formación</span>
           {/* Mobile: columna */}
-          <div className="flex md:hidden flex-col">
+          <div className="flex md:hidden flex-col max-w-lg mx-auto w-full">
             {TIMELINE_EDU.map((item, i) => (
               <TimelineNode key={`edu-${i}`} item={item} index={i} isLast={i === TIMELINE_EDU.length - 1} hideLabel />
             ))}

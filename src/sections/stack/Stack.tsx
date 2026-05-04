@@ -113,10 +113,10 @@ export function Stack() {
             ))}
           </div>
 
-          <div className="flex justify-center pt-6">
-            <ScrollIndicator targetId="metodologias" />
-          </div>
+        </div>
 
+        <div className="relative z-10 flex justify-center pb-6 pt-4">
+          <ScrollIndicator targetId="metodologias" />
         </div>
       </div>
     </section>
