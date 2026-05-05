@@ -38,11 +38,7 @@ Full Stack Developer working on Adobe Experience Manager (AEM). Develops reusabl
 
 ### AI Tooling
 
-- **Claude Code**: Deep refactoring and complex algorithm optimization
-- **Claude Design**: UI prototyping and layout conceptualization
-- **GitHub Copilot CLI**: Real-time command and code suggestions in the terminal
-- **OpenCode**: Debugging assistance and development cycle acceleration
-- **OpenSpec**: Software specification definition and technical requirements documentation
+Uses AI tooling deliberately: Claude Code during refactoring and architecture decisions, Copilot CLI for terminal-based suggestions, and OpenSpec for drafting technical specs before implementation. Not as a crutch — as a force multiplier.
 
 ### Version Control
 
@@ -53,7 +49,7 @@ Full Stack Developer working on Adobe Experience Manager (AEM). Develops reusabl
 ### 01 — Booqi: Event Booking Management System
 
 - **Repository**: https://github.com/RenzoRamosDEV/Booqui
-- **Type**: Team project — end-to-end responsibility from architecture to Docker deployment
+- **Type**: Team project — backend ownership across all 4 microservices (users, events, bookings, payments); sole responsible for Docker Compose orchestration (shared network, healthchecks, environment configuration). Frontend developed by teammates.
 - **Architecture**: 4 independent Spring Boot microservices (users, events, bookings, payments), each with its own MySQL database and Swagger/OpenAPI-documented REST API
 - **Inter-service communication**: Real-time validation of user identity, event existence, and seat availability across services
 - **Key features**: Centralized ticket purchasing, PDF ticket generation on booking confirmation, admin panel for organizers (event creation, booking and payment monitoring), real-time availability control
