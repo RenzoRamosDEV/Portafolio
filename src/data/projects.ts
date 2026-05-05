@@ -50,6 +50,6 @@ export const PROJECTS: Project[] = [
     ],
     badges: ['Java', 'Spring Boot', 'SpringDoc', 'Maven', 'MySQL', 'React', 'TypeScript', 'TailwindCSS', 'Claude Design', 'Otros...'],
     demo: '#',
-    repo: 'https://github.com/RenzoRamosDEV/Inventario'
+    repo: 'https://github.com/RenzoRamosDEV/Gestion-De-Inventario'
   }
 ]

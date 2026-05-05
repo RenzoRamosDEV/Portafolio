@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react'
-import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { PillButton } from '../../components/ui/PillButton'
 import { PROJECTS } from '../../data/projects'
 import type { Project } from '../../data/projects'
@@ -235,7 +234,6 @@ export function Features() {
         </div>
 
         <div className="relative z-10 flex justify-center pb-6 pt-2 lg:pb-0 lg:pt-0 lg:absolute lg:bottom-8 lg:left-0 lg:right-0">
-          <ScrollIndicator targetId="experiencia" />
         </div>
       </div>
 

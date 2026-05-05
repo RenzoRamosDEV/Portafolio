@@ -1,5 +1,6 @@
 import { GitBranch, Link2 } from 'lucide-react'
 import cvPdf from '../../assets/cv/CV Renzo Ramos.pdf'
+import logo from '../../assets/logo.png'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -29,9 +30,12 @@ export function Footer() {
     <footer className="relative border-t border-[#A7B4BC]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          {/* Brand + descripción + sociales */}
+          {/* Brand + descripción */}
           <div className="flex flex-col gap-3">
-            <span className="text-white font-semibold text-base">Renzo Ramos</span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
+              <span className="text-white font-semibold text-base">Renzo Ramos</span>
+            </div>
             <p className="text-[#A7B4BC]/60 text-sm leading-relaxed max-w-xs">
               Desarrollador Junior de Apliaciones Multiplataforma
             </p>

@@ -35,13 +35,13 @@ export function Hero() {
             <div className="text-center leading-relaxed"
               style={{ color: 'rgba(167,180,188,0.7)', fontSize: 'clamp(12px,1.4vw,17px)' }}>
               <p className="m-0 mb-4">
-                Desarrollo APIs escalables con Java y Spring Boot bajo principios de Clean Architecture.
+                Trabajo con <strong>Java y Spring Boot</strong> para construir APIs mantenibles, pensadas para evitar problemas antes de que aparezcan.
               </p>
               <p className="m-0 mb-4">
-                ¿El resultado? Sistemas fáciles de mantener, con menos incidencias técnicas y listos para crecer al ritmo de tus usuarios.
+                No solo desarrollo funcionalidades: construyo la base sólida sobre la que tu producto puede crecer sin problemas..
               </p>
               <p className="m-0">
-                Mi experiencia en frontend y diseño me permite cerrar la brecha entre la lógica y la interfaz, entregando productos coherentes que funcionan bien por dentro y se ven bien por fuera.
+                Además, domino el <strong>Frontend</strong> para cerrar la brecha entre la lógica y la interfaz, asegurando que el producto sea coherente de principio a fin.
               </p>
             </div>
 

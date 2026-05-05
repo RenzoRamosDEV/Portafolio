@@ -5,15 +5,16 @@ interface WordsPullUpProps {
   text: string
   className?: string
   showAsterisk?: boolean
+  align?: 'left' | 'center' | 'right'
 }
 
-export function WordsPullUp({ text, className = '', showAsterisk = false }: WordsPullUpProps) {
+export function WordsPullUp({ text, className = '', showAsterisk = false, align = 'center' }: WordsPullUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true })
   const words = text.split(' ')
 
   return (
-    <span ref={ref} className={`flex justify-center flex-wrap ${className}`}>
+    <span ref={ref} className={`flex flex-wrap ${align === 'left' ? 'justify-start' : align === 'right' ? 'justify-end' : 'justify-center'} ${className}`}>
       {words.map((word, i) => {
         const isLast = i === words.length - 1
         return (

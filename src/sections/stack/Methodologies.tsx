@@ -43,9 +43,9 @@ export function Methodologies() {
       <div className="section-grid relative w-full flex flex-col">
         <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
-        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 py-8 justify-center">
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-4 py-8 justify-center">
 
-          <SectionTitle text="Metodologías que aplico" align="left" leading="snug" />
+          <SectionTitle line1="Metodologías" line2="que aplico" />
 
           {/* Desktop: cards grandes por grupo */}
           <div className="hidden lg:flex flex-col gap-3">

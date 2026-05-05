@@ -1,23 +1,23 @@
 import { WordsPullUp } from '../animations/WordsPullUp'
 
 type Props = {
-  text: string
+  line1: string
+  line2?: string
   align?: 'left' | 'center' | 'right'
-  color?: string
-  leading?: 'tight' | 'snug'
 }
 
-export function SectionTitle({ text, align = 'center', color = '#A7B4BC', leading = 'tight' }: Props) {
+export function SectionTitle({ line1, line2, align = 'left' }: Props) {
   const alignClass = align === 'left' ? 'text-left' : align === 'right' ? 'text-right' : 'text-center'
-  const leadingClass = leading === 'snug' ? 'leading-[1.1]' : 'leading-[0.9]'
   return (
-    <div className={alignClass}>
-      <h2
-        style={{ fontSize: 'clamp(40px,6vw,80px)', color }}
-        className={`font-medium ${leadingClass} tracking-[-0.07em] m-0 pb-1`}
-      >
-        <WordsPullUp text={text} />
-      </h2>
+    <div className={`flex flex-col leading-[1.1] tracking-[-0.07em] ${alignClass}`} style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
+      <span style={{ color: '#A7B4BC' }}>
+        <WordsPullUp text={line1} align={align} />
+      </span>
+      {line2 && (
+        <span style={{ color: 'rgba(167,180,188,0.25)' }}>
+          <WordsPullUp text={line2} align={align} />
+        </span>
+      )}
     </div>
   )
 }

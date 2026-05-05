@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { SectionTitle } from '../../components/ui/SectionTitle'
-import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { experienceItems } from '../../data/experience'
 import { educationItems } from '../../data/education'
 import { certificateItems } from '../../data/certificates'
@@ -223,7 +222,7 @@ function ExperienceCard({ targetId }: { targetId: string }) {
         }}
       >
         <div className="flex items-baseline justify-between flex-wrap gap-3">
-          <SectionTitle text="Trayectoria Laboral & Certificados" align="left" leading="snug" />
+          <SectionTitle line1="Trayectoria Laboral" line2="& Certificados" />
         </div>
 
         {/* Mobile: columna única */}
@@ -265,7 +264,6 @@ function ExperienceCard({ targetId }: { targetId: string }) {
         </div>
 
         <div className="flex justify-center pt-2">
-          <ScrollIndicator targetId={targetId} />
         </div>
       </div>
     </div>
@@ -286,7 +284,7 @@ function EducationCard() {
         }}
       >
         <div className="flex items-baseline justify-between flex-wrap gap-3">
-          <SectionTitle text="Trayectoria en Formación" align="left" leading="snug" />
+          <SectionTitle line1="Trayectoria" line2="en Formación" />
         </div>
 
         <div className="w-full bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(16px,2vw,28px)] flex flex-col gap-0">
@@ -317,7 +315,6 @@ function EducationCard() {
         </div>
 
         <div className="flex justify-center pt-2">
-          <ScrollIndicator targetId="stack" />
         </div>
       </div>
     </div>

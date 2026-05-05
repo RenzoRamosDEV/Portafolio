@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { SectionTitle } from '../../components/ui/SectionTitle'
-import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { StackChip } from './StackChip'
 import { StackDetailCard } from './StackDetailCard'
 import { STACK } from '../../data/stack'
@@ -50,7 +49,7 @@ export function Stack() {
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 justify-center">
 
-          <SectionTitle text="Herramientas en mi Stack" align="left" leading="snug" />
+          <SectionTitle line1="Herramientas" line2="en mi Stack" />
 
           {/* Desktop: cards grandes por grupo */}
           <div className="hidden lg:flex flex-col gap-3">
@@ -104,7 +103,6 @@ export function Stack() {
         </div>
 
         <div className="relative z-10 flex justify-center pb-6 pt-4">
-          <ScrollIndicator targetId="metodologias" />
         </div>
       </div>
     </section>
