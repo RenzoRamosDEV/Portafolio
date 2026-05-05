@@ -100,14 +100,3 @@ export function getCertificates(lang: Lang): CertificateItem[] {
     desc: item.desc[lang],
   }))
 }
-
-export const certificateItems = CERTIFICATES_RAW.map(item => ({
-  title: item.title.es,
-  company: item.company,
-  period: item.period.es,
-  location: item.location,
-  credential: item.credential,
-  pdf: item.pdf,
-  preview: item.preview,
-  desc: item.desc.es,
-}))

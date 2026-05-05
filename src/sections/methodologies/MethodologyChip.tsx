@@ -8,7 +8,7 @@ type Props = {
   delay: number
 }
 
-export function StackMethodChip({ item, isSelected, onClick, delay }: Props) {
+export function MethodologyChip({ item, isSelected, onClick, delay }: Props) {
   return (
     <Chip
       label={item.name}

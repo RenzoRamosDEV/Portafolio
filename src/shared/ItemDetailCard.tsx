@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import type { StackItem } from '../../data/stack'
-import type { MethodologyItem } from '../../data/methodologies'
+import type { StackItem } from '../data/stack'
+import type { MethodologyItem } from '../data/methodologies'
 
 type Props = {
   item: StackItem | MethodologyItem
@@ -8,7 +8,7 @@ type Props = {
   reverse?: boolean
 }
 
-export function StackDetailCard({ item, onClose, reverse = false }: Props) {
+export function ItemDetailCard({ item, onClose, reverse = false }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0, x: reverse ? -10 : 10 }}

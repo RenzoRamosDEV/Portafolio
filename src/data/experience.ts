@@ -44,11 +44,3 @@ export function getExperience(lang: Lang): ExperienceItem[] {
     desc: item.desc[lang],
   }))
 }
-
-export const experienceItems = EXPERIENCE_RAW.map(item => ({
-  title: item.title.es,
-  company: item.company,
-  period: item.period.es,
-  location: item.location,
-  desc: item.desc.es,
-}))

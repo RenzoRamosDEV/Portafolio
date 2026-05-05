@@ -3,10 +3,10 @@ import { LanguageProvider } from './i18n/LanguageContext'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './sections/hero/Hero'
-import { Features } from './sections/features/Features'
-import { Experience } from './sections/experience/Experience'
-import { Stack } from './sections/stack/Stack'
-import { Methodologies } from './sections/stack/Methodologies'
+import { ProjectsSection } from './sections/projects/ProjectsSection'
+import { ExperienceSection } from './sections/experience/ExperienceSection'
+import { StackSection } from './sections/stack/StackSection'
+import { MethodologiesSection } from './sections/methodologies/MethodologiesSection'
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
       <main className="bg-black">
         <Navbar />
         <Hero />
-        <Features />
-        <Experience />
-        <Stack />
-        <Methodologies />
+        <ProjectsSection />
+        <ExperienceSection />
+        <StackSection />
+        <MethodologiesSection />
         <Footer />
       </main>
     </LanguageProvider>

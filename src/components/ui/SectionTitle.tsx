@@ -1,4 +1,4 @@
-import { WordsPullUp } from '../animations/WordsPullUp'
+import { WordsPullUp } from '../motion/WordsPullUp'
 
 type Props = {
   line1: string

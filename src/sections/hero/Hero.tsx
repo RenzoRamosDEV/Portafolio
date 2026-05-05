@@ -1,4 +1,4 @@
-import { WordsPullUp } from '../../components/animations/WordsPullUp'
+import { WordsPullUp } from '../../components/motion/WordsPullUp'
 import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { PillButton } from '../../components/ui/PillButton'
 import { useLanguage } from '../../i18n/LanguageContext'

@@ -76,11 +76,3 @@ export function getEducation(lang: Lang): EducationItem[] {
     desc: item.desc[lang],
   }))
 }
-
-export const educationItems = EDUCATION_RAW.map(item => ({
-  title: item.title.es,
-  company: item.company,
-  period: item.period.es,
-  location: item.location,
-  desc: item.desc.es,
-}))
