@@ -195,8 +195,8 @@ export function Features() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
 
   return (
-    <section id="proyectos" className="lg:min-h-screen p-3 sm:p-4 bg-black">
-      <div className="section-grid relative w-full min-h-[calc(100vh-32px)] rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col pb-20 lg:pb-0">
+    <section id="proyectos" className="bg-black">
+      <div className="section-grid relative w-full overflow-hidden flex flex-col pb-20 lg:pb-0">
         <div className="section-vignette absolute inset-0 z-[1] pointer-events-none" />
 
         <div

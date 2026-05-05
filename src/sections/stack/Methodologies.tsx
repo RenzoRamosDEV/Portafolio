@@ -39,8 +39,8 @@ export function Methodologies() {
   const [selectedMet, setSelectedMet] = useState<MethodologyItem | null>(null)
 
   return (
-    <section id="metodologias" className="min-h-screen bg-black p-[16px]">
-      <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)] min-h-[calc(100vh-32px)]">
+    <section id="metodologias" className="bg-black">
+      <div className="section-grid relative w-full flex flex-col">
         <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 py-8 justify-center">
@@ -66,7 +66,7 @@ export function Methodologies() {
           {/* Mobile: chips + detail card inline */}
           <div className="flex lg:hidden flex-col max-w-lg mx-auto w-full">
             {methodRows.map((row, ri) => (
-              <div key={row.key} className="flex flex-col border-b border-white/5 first:border-t first:border-white/5">
+              <div key={row.key} className="flex flex-col">
                 <div className="flex flex-col gap-2 py-3">
                   <span className="text-[11px] font-bold tracking-widest uppercase text-[#A7B4BC]/40">
                     {row.label}

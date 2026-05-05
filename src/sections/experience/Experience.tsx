@@ -211,7 +211,7 @@ function TimelineNode({
 
 function ExperienceCard({ targetId }: { targetId: string }) {
   return (
-    <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]">
+    <div className="section-grid relative w-full flex flex-col">
       <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
@@ -274,7 +274,7 @@ function ExperienceCard({ targetId }: { targetId: string }) {
 
 function EducationCard() {
   return (
-    <div className="section-grid relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]">
+    <div className="section-grid relative w-full flex flex-col">
       <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
@@ -327,12 +327,12 @@ function EducationCard() {
 export function Experience() {
   return (
     <>
-      <section id="experiencia" className="min-h-screen p-[16px] bg-black">
+      <section id="experiencia" className="bg-black">
         <ExperienceCard targetId="experiencia-formacion" />
       </section>
 
       {/* Solo desktop */}
-      <section id="experiencia-formacion" className="hidden md:block min-h-screen p-[16px] bg-black">
+      <section id="experiencia-formacion" className="hidden md:block bg-black">
         <EducationCard />
       </section>
     </>

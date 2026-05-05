@@ -2,15 +2,17 @@ import { WordsPullUp } from '../../components/animations/WordsPullUp'
 import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { PillButton } from '../../components/ui/PillButton'
 import bgHero from '../../assets/videos/bg-hero-light.mp4'
+import cvPdf from '../../assets/cv/CV Renzo Ramos.pdf'
 
 export function Hero() {
   return (
-    <section id="sobre-mi" className="min-h-screen p-[16px]">
-      <div className="relative w-full min-h-[calc(100vh-32px)] rounded-2xl md:rounded-[2rem] overflow-hidden">
+    <section id="sobre-mi" className="min-h-screen">
+      <div className="relative w-full min-h-screen overflow-hidden">
         <video className="absolute inset-0 w-full h-full object-cover" src={bgHero} autoPlay loop muted playsInline preload="none" />
 
         <div className="noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
+        <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-8 lg:px-16 py-10">
           <div className="bg-[#101010]/80 backdrop-blur-md rounded-2xl md:rounded-3xl p-3 sm:p-8 md:p-12 w-full max-w-7xl border border-white/5 shadow-2xl flex flex-col gap-2 sm:gap-6 lg:gap-8">
@@ -48,12 +50,12 @@ export function Hero() {
             <div className="md:hidden flex flex-wrap items-center justify-center gap-2">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
               <PillButton label="LinkedIn" href="https://www.linkedin.com/in/renzoinv04/" external />
-              <PillButton label="Curriculum" disabled />
+              <PillButton label="Curriculum" href={cvPdf} external />
             </div>
             <div className="hidden md:flex flex-wrap items-center justify-center gap-3">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
               <PillButton label="LinkedIn" href="https://www.linkedin.com/in/renzoinv04/" external />
-              <PillButton label="Curriculum" disabled />
+              <PillButton label="Curriculum" href={cvPdf} external />
             </div>
           </div>
         </div>
