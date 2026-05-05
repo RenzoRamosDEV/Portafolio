@@ -9,7 +9,7 @@ type AsLink = Common & { href: string; disabled?: false; external?: boolean; onC
 type AsButton = Common & { href?: undefined; disabled?: boolean; external?: never; onClick?: () => void }
 
 const SIZE_MAP = {
-  xs: { width: 'w-16', text: 'text-xs', icon: 'w-7 h-7', padding: 'pl-3 pr-1 py-1' },
+  xs: { width: 'w-16 lg:w-24', text: 'text-xs lg:text-sm', icon: 'w-7 h-7 lg:w-9 lg:h-9', padding: 'pl-3 pr-1 py-1 lg:pl-4 lg:pr-1.5 lg:py-1.5' },
   sm: { width: 'w-20', text: 'text-xs', icon: 'w-7 h-7', padding: 'pl-3 pr-1 py-1' },
   md: { width: 'w-20 md:w-28', text: 'text-xs md:text-base', icon: 'w-7 h-7 md:w-10 md:h-10', padding: 'pl-3 pr-1 py-1 md:pl-5 md:pr-1.5 md:py-1.5' },
 } as const

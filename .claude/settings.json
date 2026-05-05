@@ -11,7 +11,21 @@
       "Bash(git merge *)",
       "Bash(git pull *)",
       "Bash(xargs ls *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(sed -i '/<ScrollIndicator targetId=\"experiencia\" \\\\/>/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/features/Features.tsx)",
+      "Bash(sed -i '/import { ScrollIndicator }/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/features/Features.tsx)",
+      "Bash(sed -i '/<ScrollIndicator targetId={targetId} \\\\/>/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/experience/Experience.tsx)",
+      "Bash(sed -i '/<ScrollIndicator targetId=\"stack\" \\\\/>/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/experience/Experience.tsx)",
+      "Bash(sed -i '/import { ScrollIndicator }/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/experience/Experience.tsx)",
+      "Bash(sed -i '/<ScrollIndicator targetId=\"metodologias\" \\\\/>/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/stack/Stack.tsx)",
+      "Bash(sed -i '/import { ScrollIndicator }/d' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/stack/Stack.tsx)",
+      "Bash(sed -n '200,215p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/features/Features.tsx)",
+      "Bash(sed -n '213,225p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/experience/Experience.tsx)",
+      "Read(//home/renzo-renzo/Workspace/Renzo/portafololio-renzo/src/sections/features/**)",
+      "Bash(npx vite *)"
+    ],
+    "additionalDirectories": [
+      "/home/renzo-ramos/Documentos/Docs/CV"
     ]
   }
 }
