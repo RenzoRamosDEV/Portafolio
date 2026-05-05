@@ -1,10 +1,13 @@
 import { WordsPullUp } from '../../components/animations/WordsPullUp'
 import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { PillButton } from '../../components/ui/PillButton'
+import { useLanguage } from '../../i18n/LanguageContext'
 import bgHero from '../../assets/videos/bg-hero-light.mp4'
 import cvPdf from '../../assets/cv/CV Renzo Ramos.pdf'
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section id="sobre-mi" className="min-h-screen">
       <div className="relative w-full min-h-screen overflow-hidden">
@@ -29,32 +32,27 @@ export function Hero() {
               className="font-bold leading-[1.05] tracking-[-0.04em] m-0 text-center"
               style={{ color: '#ffffff', fontSize: 'clamp(18px,5vw,64px)' }}
             >
-              Diseño y construyo backends que escalan sin romperse cuando tu producto crece            </p>
+              {t('hero_subtitle')}
+            </p>
 
             {/* Body text */}
             <div className="text-center leading-relaxed"
               style={{ color: 'rgba(167,180,188,0.7)', fontSize: 'clamp(12px,1.4vw,17px)' }}>
-              <p className="m-0 mb-4">
-                Trabajo con <strong>Java y Spring Boot</strong> para construir APIs mantenibles, pensadas para evitar problemas antes de que aparezcan.
-              </p>
-              <p className="m-0 mb-4">
-                No solo desarrollo funcionalidades: construyo la base sólida sobre la que tu producto puede crecer sin problemas..
-              </p>
-              <p className="m-0">
-                Además, domino el <strong>Frontend</strong> para cerrar la brecha entre la lógica y la interfaz, asegurando que el producto sea coherente de principio a fin.
-              </p>
+              <p className="m-0 mb-4" dangerouslySetInnerHTML={{ __html: t('hero_body1') }} />
+              <p className="m-0 mb-4">{t('hero_body2')}</p>
+              <p className="m-0" dangerouslySetInnerHTML={{ __html: t('hero_body3') }} />
             </div>
 
             {/* Buttons */}
             <div className="md:hidden flex flex-wrap items-center justify-center gap-2">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
               <PillButton label="LinkedIn" href="https://www.linkedin.com/in/renzoinv04/" external />
-              <PillButton label="Curriculum" href={cvPdf} external />
+              <PillButton label={t('hero_btn_curriculum')} href={cvPdf} external />
             </div>
             <div className="hidden md:flex flex-wrap items-center justify-center gap-3">
               <PillButton label="GitHub" href="https://github.com/RenzoRamosDEV" external />
               <PillButton label="LinkedIn" href="https://www.linkedin.com/in/renzoinv04/" external />
-              <PillButton label="Curriculum" href={cvPdf} external />
+              <PillButton label={t('hero_btn_curriculum')} href={cvPdf} external />
             </div>
           </div>
         </div>

@@ -1,20 +1,11 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SectionTitle } from '../../components/ui/SectionTitle'
-
 import { StackMethodChip } from './StackMethodChip'
 import { StackDetailCard } from './StackDetailCard'
-import { METHODOLOGIES } from '../../data/methodologies'
+import { getMethodologies } from '../../data/methodologies'
 import type { MethodologyItem } from '../../data/methodologies'
-
-const METHOD_GROUPS = [
-  { key: 'arch',    label: 'Arquitectura' },
-  { key: 'testing', label: 'Testing'      },
-  { key: 'process', label: 'Proceso'      },
-  { key: 'ui',      label: 'UI'           },
-] as const
-
-const methodRows = METHOD_GROUPS.map(g => ({ ...g, items: METHODOLOGIES.filter(m => m.cat === g.key) }))
+import { useLanguage } from '../../i18n/LanguageContext'
 
 function DesktopMethodCard({ item, index }: { item: MethodologyItem; index: number }) {
   return (
@@ -36,7 +27,18 @@ function DesktopMethodCard({ item, index }: { item: MethodologyItem; index: numb
 }
 
 export function Methodologies() {
+  const { t, lang } = useLanguage()
   const [selectedMet, setSelectedMet] = useState<MethodologyItem | null>(null)
+
+  const methodGroups = [
+    { key: 'arch',    label: t('method_group_arch')    },
+    { key: 'testing', label: t('method_group_testing') },
+    { key: 'process', label: t('method_group_process') },
+    { key: 'ui',      label: t('method_group_ui')      },
+  ] as const
+
+  const METHODOLOGIES = getMethodologies(lang)
+  const methodRows = methodGroups.map(g => ({ ...g, items: METHODOLOGIES.filter(m => m.cat === g.key) }))
 
   return (
     <section id="metodologias" className="bg-black">
@@ -45,7 +47,7 @@ export function Methodologies() {
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-4 py-6 lg:py-8 justify-center">
 
-          <SectionTitle line1="Metodologías" line2="que aplico" />
+          <SectionTitle line1={t('method_title1')} line2={t('method_title2')} />
 
           {/* Desktop: cards grandes por grupo */}
           <div className="hidden lg:flex flex-col gap-3">
@@ -97,8 +99,6 @@ export function Methodologies() {
           </div>
 
         </div>
-
-
       </div>
     </section>
   )

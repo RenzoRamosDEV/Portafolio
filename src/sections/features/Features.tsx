@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import { PillButton } from '../../components/ui/PillButton'
-import { PROJECTS } from '../../data/projects'
+import { getProjects } from '../../data/projects'
 import type { Project } from '../../data/projects'
 import { useInView } from '../../hooks/useInView'
+import { useLanguage } from '../../i18n/LanguageContext'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const { t } = useLanguage()
   const [imgIndex, setImgIndex] = useState(0)
   const images = project.images ?? []
 
@@ -90,7 +92,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
           {project.points?.length > 0 && (
             <div className="hidden md:flex flex-col gap-4">
-              <span className="text-[10px] tracking-[0.14em] uppercase font-bold text-[#A7B4BC]/30">Qué resuelve</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase font-bold text-[#A7B4BC]/30">{t('modal_what_solves')}</span>
               {project.points.map((p, i) => (
                 <div key={i} className="flex gap-3">
                   <span
@@ -119,7 +121,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 </span>
               ))}
             </div>
-            {project.repo && <PillButton label="Repositorio" href={project.repo} external />}
+            {project.repo && <PillButton label={t('modal_repository')} href={project.repo} external />}
           </div>
         </div>
       </div>
@@ -134,6 +136,7 @@ type ProjectCardProps = {
 }
 
 function ProjectCard({ index, project, onLearnMore }: ProjectCardProps) {
+  const { t } = useLanguage()
   const ref = useRef<HTMLDivElement>(null)
   const visible = useInView(ref, 0.12)
 
@@ -168,12 +171,12 @@ function ProjectCard({ index, project, onLearnMore }: ProjectCardProps) {
 
           {project.badges.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
-              {project.badges.map(t => (
+              {project.badges.map(badge => (
                 <span
-                  key={t}
+                  key={badge}
                   className="px-3 py-1 rounded-[6px] bg-[#A7B4BC]/[0.07] border border-[#A7B4BC]/10 text-[#A7B4BC]/55 text-[13px]"
                 >
-                  {t}
+                  {badge}
                 </span>
               ))}
             </div>
@@ -182,8 +185,8 @@ function ProjectCard({ index, project, onLearnMore }: ProjectCardProps) {
 
         <div className="h-px mx-6 bg-gradient-to-r from-transparent via-[#A7B4BC]/08 to-transparent" />
         <div className="p-3 px-[clamp(14px,2vw,24px)] flex flex-row gap-2 justify-center lg:justify-end">
-          <PillButton label="Saber más" width="xs" onClick={onLearnMore} />
-          {project.repo && <PillButton label="Repo" width="xs" href={project.repo} external />}
+          <PillButton label={t('features_learn_more')} width="xs" onClick={onLearnMore} />
+          {project.repo && <PillButton label={t('features_repo')} width="xs" href={project.repo} external />}
         </div>
       </div>
     </div>
@@ -191,7 +194,9 @@ function ProjectCard({ index, project, onLearnMore }: ProjectCardProps) {
 }
 
 export function Features() {
+  const { t, lang } = useLanguage()
   const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const projects = getProjects(lang)
 
   return (
     <section id="proyectos" className="bg-black">
@@ -209,8 +214,8 @@ export function Features() {
         >
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div className="flex flex-col leading-[1.1] tracking-[-0.07em]" style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
-              <span style={{ color: '#A7B4BC' }}>Proyectos</span>
-              <span style={{ color: 'rgba(167,180,188,0.25)' }}>Destacados</span>
+              <span style={{ color: '#A7B4BC' }}>{t('features_title1')}</span>
+              <span style={{ color: 'rgba(167,180,188,0.25)' }}>{t('features_title2')}</span>
             </div>
           </div>
 
@@ -221,7 +226,7 @@ export function Features() {
               gap: 'clamp(10px,1.5vw,16px)',
             }}
           >
-            {PROJECTS.map((p, i) => (
+            {projects.map((p, i) => (
               <ProjectCard
                 key={p.num}
                 index={i}

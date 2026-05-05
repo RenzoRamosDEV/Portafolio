@@ -3,17 +3,9 @@ import { useState } from 'react'
 import { SectionTitle } from '../../components/ui/SectionTitle'
 import { StackChip } from './StackChip'
 import { StackDetailCard } from './StackDetailCard'
-import { STACK } from '../../data/stack'
+import { getStack } from '../../data/stack'
 import type { StackItem } from '../../data/stack'
-
-const STACK_GROUPS = [
-  { key: 'back',        label: 'Backend'  },
-  { key: 'stack-tools', label: 'Tools'    },
-  { key: 'front',       label: 'Frontend' },
-  { key: 'ia',          label: 'IA'       },
-] as const
-
-const stackRows = STACK_GROUPS.map(g => ({ ...g, items: STACK.filter(s => s.cat === g.key) }))
+import { useLanguage } from '../../i18n/LanguageContext'
 
 function DesktopStackCard({ item, index }: { item: StackItem; index: number }) {
   return (
@@ -40,7 +32,18 @@ function DesktopStackCard({ item, index }: { item: StackItem; index: number }) {
 }
 
 export function Stack() {
+  const { t, lang } = useLanguage()
   const [selectedStack, setSelectedStack] = useState<StackItem | null>(null)
+
+  const stackGroups = [
+    { key: 'back',        label: t('stack_group_back')  },
+    { key: 'stack-tools', label: t('stack_group_tools') },
+    { key: 'front',       label: t('stack_group_front') },
+    { key: 'ia',          label: t('stack_group_ia')    },
+  ] as const
+
+  const STACK = getStack(lang)
+  const stackRows = stackGroups.map(g => ({ ...g, items: STACK.filter(s => s.cat === g.key) }))
 
   return (
     <section id="stack" className="bg-black">
@@ -49,7 +52,7 @@ export function Stack() {
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-6 lg:py-8 justify-center">
 
-          <SectionTitle line1="Herramientas" line2="en mi Stack" />
+          <SectionTitle line1={t('stack_title1')} line2={t('stack_title2')} />
 
           {/* Desktop: cards grandes por grupo */}
           <div className="hidden lg:flex flex-col gap-3">
