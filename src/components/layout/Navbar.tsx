@@ -32,12 +32,25 @@ function useActiveSection(ids: string[]) {
   return active
 }
 
+function LangButton() {
+  const { lang, setLang } = useLanguage()
+  return (
+    <button
+      onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+      className="nav-link text-sm lg:text-base font-medium whitespace-nowrap transition-colors duration-300 bg-transparent border-0 cursor-pointer px-0 flex items-center gap-1.5"
+      style={{ color: 'rgba(167,180,188,0.7)' }}
+    >
+      🌐 {lang === 'es' ? 'ES' : 'EN'}
+    </button>
+  )
+}
+
 export function Navbar() {
   const { scrolled, fused } = useScrollFusion(FUSED_SECTIONS)
   const activeSection = useActiveSection(NAV_SECTION_IDS)
   const isFloating = scrolled && !fused
   const borderColor = isFloating ? 'rgba(255,255,255,0.1)' : 'transparent'
-  const { t, lang, setLang } = useLanguage()
+  const { t } = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -49,7 +62,6 @@ export function Navbar() {
     { label: t('nav_methodologies'), targetId: 'metodologias' },
   ]
 
-  // Cerrar menú al click fuera
   useEffect(() => {
     if (!menuOpen) return
     const handler = (e: MouseEvent) => {
@@ -60,44 +72,47 @@ export function Navbar() {
   }, [menuOpen])
 
   return (
-    <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300">
+    <>
+      {/* ── Desktop nav + pill idioma — centrados juntos ── */}
+      <div className="hidden md:flex items-start gap-2 fixed top-0 left-1/2 -translate-x-1/2 z-50">
+        <nav
+          style={{ backgroundColor: '#000000', borderColor }}
+          className={`transition-all duration-300 shadow-lg border ${
+            !scrolled
+              ? 'rounded-b-xl md:rounded-b-2xl px-10 py-2.5 lg:px-14 lg:py-3'
+              : 'rounded-full px-6 py-2 mt-4 backdrop-blur-md'
+          }`}
+        >
+          <ul className="flex items-center gap-8 lg:gap-10 list-none m-0 p-0 flex-nowrap">
+            {navItems.map(({ label, targetId }) => (
+              <li key={targetId}>
+                <a
+                  href={`#${targetId}`}
+                  onClick={e => scrollTo(e, targetId)}
+                  className="nav-link text-sm lg:text-base font-medium no-underline whitespace-nowrap transition-colors duration-300"
+                  style={{ color: activeSection === targetId ? '#ffffff' : undefined }}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* ── Desktop ── */}
-      <nav
-        style={{ backgroundColor: '#000000', borderColor }}
-        className={`hidden md:block transition-all duration-300 shadow-lg border ${
-          !scrolled
-            ? 'rounded-b-xl md:rounded-b-2xl px-10 py-2.5 lg:px-14 lg:py-3'
-            : 'rounded-full px-6 py-2 mt-4 backdrop-blur-md'
-        }`}
-      >
-        <ul className="flex items-center gap-8 lg:gap-10 list-none m-0 p-0 flex-nowrap">
-          {navItems.map(({ label, targetId }) => (
-            <li key={targetId}>
-              <a
-                href={`#${targetId}`}
-                onClick={e => scrollTo(e, targetId)}
-                className="nav-link text-sm lg:text-base font-medium no-underline whitespace-nowrap transition-colors duration-300"
-                style={{ color: activeSection === targetId ? '#ffffff' : undefined }}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <button
-              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="nav-link text-sm lg:text-base font-medium whitespace-nowrap transition-colors duration-300 bg-transparent border-0 cursor-pointer px-0"
-              style={{ color: 'rgba(167,180,188,0.6)' }}
-            >
-              {t('lang_toggle')}
-            </button>
-          </li>
-        </ul>
-      </nav>
+        <div
+          style={{ backgroundColor: '#000000', borderColor }}
+          className={`transition-all duration-300 shadow-lg border ${
+            !scrolled
+              ? 'rounded-b-xl px-5 py-2.5 lg:py-3'
+              : 'rounded-full px-5 py-2 mt-4 backdrop-blur-md'
+          }`}
+        >
+          <LangButton />
+        </div>
+      </div>
 
-      {/* ── Mobile ── */}
-      <div ref={menuRef} className="md:hidden">
+      {/* ── Mobile nav ── */}
+      <div ref={menuRef} className="md:hidden fixed top-0 left-1/2 -translate-x-1/2 z-50">
         <div
           style={{ backgroundColor: '#000000', borderColor }}
           className={`flex items-center justify-between gap-3 transition-all duration-300 shadow-lg border ${
@@ -106,29 +121,18 @@ export function Navbar() {
               : 'rounded-full px-4 py-2 mt-3 backdrop-blur-md'
           }`}
         >
-          {/* Botón menú hamburguesa */}
           <button
             onClick={() => setMenuOpen(o => !o)}
             className="flex items-center gap-1.5 bg-transparent border-0 cursor-pointer text-[#A7B4BC]/70 hover:text-white transition-colors duration-200 p-1"
             aria-label="Menu"
           >
-            {menuOpen
-              ? <X className="w-5 h-5" />
-              : <Menu className="w-5 h-5" />
-            }
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             <span className="text-[13px] font-medium">Menu</span>
           </button>
 
-          {/* Botón de idioma */}
-          <button
-            onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-            className="text-[13px] font-semibold px-3 py-1 rounded-full border border-[#A7B4BC]/20 bg-[#A7B4BC]/5 text-[#A7B4BC]/70 hover:text-white hover:border-[#A7B4BC]/40 transition-all duration-200 cursor-pointer"
-          >
-            {t('lang_toggle')}
-          </button>
+          <LangButton />
         </div>
 
-        {/* Dropdown menú */}
         {menuOpen && (
           <div
             style={{ backgroundColor: '#0a0a0a', borderColor: 'rgba(255,255,255,0.08)' }}
@@ -154,7 +158,6 @@ export function Navbar() {
           </div>
         )}
       </div>
-
-    </div>
+    </>
   )
 }
